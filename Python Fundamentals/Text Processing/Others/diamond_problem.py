@@ -17,7 +17,8 @@ while string != []:
             for j in string[start:]:
                 if j == '>':
                     end = string.index(j)
-                    diamond = sum([int(k) for k in string[start:end] if k.isdigit()])
+                    diamond = sum(int(k)
+                                  for k in string[start:end] if k.isdigit())
                     print(f'Found {diamond} carat diamond')
                     string = string[end + 1:]
                     break

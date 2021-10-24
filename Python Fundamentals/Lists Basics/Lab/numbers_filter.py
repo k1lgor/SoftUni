@@ -23,20 +23,4 @@ filter = [
     and command == 'positive'
     and i >= 0
 ]
-# if command == 'positive':
-#     for i in nums:
-#         if i >= 0:
-#             filter.append(i)
-# elif command == 'negative':
-#     for i in nums:
-#         if i < 0:
-#             filter.append(i)
-# elif command == 'even':
-#     for i in nums:
-#         if i % 2 == 0:
-#             filter.append(i)
-# elif command == 'odd':
-#     for i in nums:
-#         if i % 2 != 0:
-#             filter.append(i)
 print(filter)
