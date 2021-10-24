@@ -1,0 +1,6 @@
+# f_name = input()
+# s_name = input()
+# age = int(input())
+# town = input()
+# print(f'You are {f_name} {s_name}, a {age}-years old person from {town}.')
+print(f"You are {input()} {input()}, a {int(input())}-years old person from {input()}.")
