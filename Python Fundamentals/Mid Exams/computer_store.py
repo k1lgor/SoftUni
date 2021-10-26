@@ -1,4 +1,4 @@
-def customer(current_total, current_taxes, current_total_wout_tax):
+def customer(current_total, current_total_wout_tax):
 
     if current_total == 0:
         return print("Invalid order!")
