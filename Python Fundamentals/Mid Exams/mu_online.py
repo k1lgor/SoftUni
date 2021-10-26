@@ -12,8 +12,6 @@ for room in dungeon:
             if HP > 100:
                 room[1] = 100 - old_hp
                 HP = 100
-        else:
-            pass
         print(f"You healed for {room[1]} hp.\nCurrent health: {HP} hp.")
 
     elif room[0] == 'chest':
