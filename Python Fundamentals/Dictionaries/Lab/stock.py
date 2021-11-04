@@ -4,7 +4,7 @@ products = input().split(" ")
 random_dict = {}
 
 for i in range(0, len(random_list), 2):
-    key = random_list[i] 
+    key = random_list[i]
     random_dict[key] = int(random_list[i + 1])
 
 for item in products:

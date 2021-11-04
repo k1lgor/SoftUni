@@ -4,7 +4,7 @@ class Vehicle:
         self.model = model
         self.price = price
         self.owner = None
-        
+
     def buy(self, money: int, owner: str):
         if self.owner:
             return "Car already sold"
@@ -13,17 +13,18 @@ class Vehicle:
         elif money >= self.price:
             self.owner = owner
             return f"Successfully bought a {self.type}. Change: {money - self.price:.2f}"
-        
+
     def sell(self):
         if self.owner:
             self.owner = None
         else:
             return "Vehicle has no owner"
-    
+
     def __repr__(self):
         if self.owner != None:
             return f"{self.model} {self.type} is owned by: {self.owner}"
         return f"{self.model} {self.type} is on sale: {self.price}"
+
 
 type = "car"
 model = "BMW"
