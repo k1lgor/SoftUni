@@ -7,7 +7,7 @@ while True:
         end_command = student
         break
 
-    name, (ID), course = student.split(":")
+    name, ID, course = student.split(":")
     if course not in DICT:
         DICT[course] = {}
     DICT[course][ID] = name
