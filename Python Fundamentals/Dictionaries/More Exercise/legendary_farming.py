@@ -29,9 +29,8 @@ while not is_obtained:
         break
     item_list = input()
 
-sort_key_items = sorted(key_items.items(), key=lambda kvp: (-kvp[1], kvp[0]))
-for k, v in sort_key_items:
+for k, v in sorted(key_items.items(), key=lambda kvp: (-kvp[1], kvp[0])):
     print(f"{k}: {v}")
-sort_junk_items = sorted(junk_items.items(), key=lambda kvp: kvp[0])
-for k, v in sort_junk_items:
+
+for k, v in sorted(junk_items.items(), key=lambda kvp: kvp[0]):
     print(f"{k}: {v}")
