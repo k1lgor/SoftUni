@@ -1,116 +1,96 @@
 import sys
 
-initial = list(map(int, input().split()))
+numbers_as_string = input().split()
 command = input()
-while command != 'end':
-    
-    command_split = command.split()
-    command1 = command_split[0]
-    command2 = command_split[1]
-    if len(command_split) > 2:
-        command3 = command_split[2]
+numbers = [int(str_num) for str_num in numbers_as_string]
+max_value = sys.maxsize
+min_value = -sys.maxsize - 1
 
-    if command1 == 'exchange':
-        if (int(command2) > len(initial)) or (int(command2) < 0):
-            print('Invalid index')
+while command != "end":
+    command = command.split()
+    if command[0] == "exchange":
+        index = int(command[1])
+        if index < 0 or index >= len(numbers):
+            print("Invalid index")
+        elif index != len(numbers):
+            first_half = numbers[:index+1]
+            second_half = numbers[index + 1::]
+            numbers = second_half + first_half
+
+    elif command[0] == "max":
+        current_max = min_value
+        for i in range(len(numbers)):
+            if command[1] == "odd":
+                current_num = numbers[i]
+                if current_num % 2 == 1 and current_num >= current_max:
+                    max_index = i
+                    current_max = current_num
+            elif command[1] == "even":
+                current_num = numbers[i]
+                if current_num % 2 == 0 and current_num >= current_max:
+                    max_index = i
+                    current_max = current_num
+        if current_max > min_value:
+            print(max_index)
         else:
-            initial = initial[int(command2) + 1:] + initial[:int(command2) + 1]
-    elif command1 == 'max':
-        max_value = 0
-        index = 0
-        if command2 == 'odd':
-            for i, d in enumerate(initial):
-                if d > max_value and d % 2 != 0:
-                    max_value = d
-                    index = i
-            if index == 0 and max_value == 0:
-                print('No matches')
-            else:
-                print(index)
-        elif command2 == 'even':
-            for i, d in enumerate(initial):
-                if d > max_value and d % 2 == 0:
-                    max_value = d
-                    index = i
-            if index == 0 and max_value == 0:
-                print('No matches')
-            else:
-                print(index)
-    elif command1 == 'min':
-        min_value = sys.maxsize
-        index = 0
-        if command2 == 'odd':
-            for i, d in enumerate(initial):
-                if d < min_value and d % 2 != 0:
-                    min_valie = d
-                    index = i
-            if index == 0 and min_value == sys_maxsize:
-                print('No matches')
-            else:
-                print(index)
-        elif command2 == 'even':
-            for i, d in enumerate(initial):
-                if d < min_value and d % 2 == 0:
-                    min_value = d
-                    index = i
-            if index == 0 and min_value == sys.maxsize:
-                print('No matches')
-            else:
-                print(index)
-    elif command1 == 'first':
-        List = []
-        counter = 0
-        if (
-            command3 == 'odd'
-            and int(command2) > len(initial)
-            or command3 != 'odd'
-            and command3 == 'even'
-            and int(command2) > len(initial)
-        ):
-            print('Invalid count')
-        elif command3 == 'odd':
-            for count in initial:
-                if counter == int(command2):
-                    break
-                if count % 2 != 0:
-                    counter += 1
-                    List.append(count)
-            print(List)
-        elif command3 == 'even':
-            for count in initial:
-                if counter == int(command2):
-                    break
-                if count % 2 == 0:
-                    counter += 1
-                    List.append(count)
-            print(List)
-    elif command1 == 'last':
-        List = []
-        counter = 0
+            print("No matches")
 
-        if (
-            command3 == 'odd'
-            and int(command2) > len(initial)
-            or command3 != 'odd'
-            and command3 == 'even'
-            and int(command2) > len(initial)
-        ):
-            print('Invalid count')
-        elif command3 == 'odd':
-            for count in initial[::-1]:
-                if counter == int(command2):
-                    break
-                if count % 2 != 0:
-                    counter += 1
-                    List.append(count)
-            print(List)
-        elif command3 == 'even':
-            for count in initial[::-1]:
-                if counter == int(command2):
-                    break
-                if count % 2 == 0:
-                    counter += 1
-                    List.append(count)
-            print(List)
+    elif command[0] == "min":
+        current_min = max_value
+        for i in range(len(numbers)):
+            if command[1] == "odd":
+                current_num = numbers[i]
+                if current_num % 2 == 1 and current_num <= current_min:
+                    min_index = i
+                    current_min = current_num
+            elif command[1] == "even":
+                current_num = numbers[i]
+                if current_num % 2 == 0 and current_num <= current_min:
+                    min_index = i
+                    current_min = current_num
+
+        if current_min < max_value:
+            print(min_index)
+        else:
+            print("No matches")
+
+    if command[0] in ["first", "last"]:
+        line_even = []
+        line_odd = []
+        num = int(command[1])
+
+        if num > len(numbers):
+            print("Invalid count")
+        else:
+            for i in numbers:
+                if i % 2 == 0:
+                    line_even.append(i)
+                else:
+                    line_odd.append(i)
+
+            if command[2] == "even":
+                if not line_even:
+                    print(line_even)
+                elif command[0] == "first":
+                    print(line_even[:num])
+                elif command[0] == "last":
+                    if int(command[1]) >= len(line_even):
+                        print(line_even)
+                    else:
+                        last_num = len(line_even) - num
+                        print(line_even[last_num::])
+
+            if command[2] == "odd":
+                if not line_odd:
+                    print(line_odd)
+                elif command[0] == "first":
+                    print(line_odd[:num])
+                elif command[0] == "last":
+                    if int(command[1]) >= len(line_odd):
+                        print(line_odd)
+                    else:
+                        last_num = len(line_odd) - num
+                        print(line_odd[last_num::])
+
     command = input()
-print(initial)
+print(numbers)
