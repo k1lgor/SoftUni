@@ -1,3 +1,34 @@
+def add(c, tok0, tok1, tok2):
+    if tok0 in c:
+        print(f"{tok0} is already in the collection!")
+    else:
+        c[tok0] = {tok1: tok2}
+        print(
+            f"{tok0} by {tok1} in {tok2} added to the collection!")
+    return c
+
+
+def remove(c, tok0):
+    if tok0 in c:
+        del c[tok0]
+        print(f"Successfully removed {tok0}!")
+    else:
+        print(
+            f"Invalid operation! {tok0} does not exist in the collection.")
+    return c
+
+
+def change(c, tok0, tok1):
+    if tok0 in c:
+        key = list(c[tok0].keys())
+        c[tok0][key[0]] = tok1
+        print(f"Changed the key of {tok0} to {tok1}!")
+    else:
+        print(
+            f"Invalid operation! {tok0} does not exist in the collection.")
+    return c
+
+
 number = int(input())
 collection = {}
 
@@ -11,27 +42,13 @@ while 'Stop' not in command:
     action, *tokens = command.split("|")
 
     if action == 'Add':
-        if tokens[0] in collection:
-            print(f"{tokens[0]} is already in the collection!")
-        else:
-            collection[tokens[0]] = {tokens[1]: tokens[2]}
-            print(
-                f"{tokens[0]} by {tokens[1]} in {tokens[2]} added to the collection!")
+        add(collection, tokens[0], tokens[1], tokens[2])
+
     elif action == 'Remove':
-        if tokens[0] in collection:
-            del collection[tokens[0]]
-            print(f"Successfully removed {tokens[0]}!")
-        else:
-            print(
-                f"Invalid operation! {tokens[0]} does not exist in the collection.")
+        remove(collection, tokens[0])
+
     elif action == 'ChangeKey':
-        if tokens[0] in collection:
-            key = list(collection[tokens[0]].keys())
-            collection[tokens[0]][key[0]] = tokens[1]
-            print(f"Changed the key of {tokens[0]} to {tokens[1]}!")
-        else:
-            print(
-                f"Invalid operation! {tokens[0]} does not exist in the collection.")
+        change(collection, tokens[0], tokens[1])
 
     command = input()
 

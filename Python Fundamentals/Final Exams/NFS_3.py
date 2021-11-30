@@ -1,3 +1,36 @@
+def drive(c, tok0, tok1, tok2):
+    if c[tok0]['fuel'] < int(tok2):
+        print("Not enough fuel to make that ride")
+    else:
+        c[tok0]['mile'] += int(tok1)
+        c[tok0]['fuel'] -= int(tok2)
+        print(
+            f"{tok0} driven for {tok1} kilometers. {tok2} liters of fuel consumed.")
+        if c[tok0]['mile'] >= 100000:
+            del c[tok0]
+            print(f"Time to sell the {tok0}!")
+    return c
+
+
+def refuel(c, tok0, tok1):
+    c[tok0]['fuel'] += int(tok1)
+    refueled = tok1 if c[tok0]['fuel'] < 75 else 75 - \
+        c[tok0]['fuel'] + int(tok1)
+    c[tok0]['fuel'] = min(c[tok0]['fuel'], 75)
+    print(
+        f"{tok0} refueled with {refueled} liters")
+    return c
+
+
+def revert(c, tok0, tok1):
+    c[tok0]['mile'] -= int(tok1)
+    if c[tok0]['mile'] < 10000:
+        c[tok0]['mile'] = 10000
+    else:
+        print(f"{tok0} mileage decreased by {tok1} kilometers")
+    return c
+
+
 number = int(input())
 cars = {}
 for _ in range(number):
@@ -10,33 +43,13 @@ while 'Stop' not in command:
     command, *tokens = command.split(" : ")
 
     if command == "Drive":
-        if cars[tokens[0]]['fuel'] < int(tokens[2]):
-            print("Not enough fuel to make that ride")
-        else:
-            cars[tokens[0]]['mile'] += int(tokens[1])
-            cars[tokens[0]]['fuel'] -= int(tokens[2])
-            print(
-                f"{tokens[0]} driven for {tokens[1]} kilometers. {tokens[2]} liters of fuel consumed.")
-            if cars[tokens[0]]['mile'] >= 100000:
-                del cars[tokens[0]]
-                print(f"Time to sell the {tokens[0]}!")
+        drive(cars, tokens[0], tokens[1], tokens[2])
 
     elif command == "Refuel":
-        cars[tokens[0]]['fuel'] += int(tokens[1])
-        if cars[tokens[0]]['fuel'] < 75:
-            refueled = tokens[1]
-        else:
-            refueled = 75 - cars[tokens[0]]['fuel'] + int(tokens[1])
-        cars[tokens[0]]['fuel'] = min(cars[tokens[0]]['fuel'], 75)
-        print(
-            f"{tokens[0]} refueled with {refueled} liters")
+        refuel(cars, tokens[0], tokens[1])
 
     elif command == "Revert":
-        cars[tokens[0]]['mile'] -= int(tokens[1])
-        if cars[tokens[0]]['mile'] < 10000:
-            cars[tokens[0]]['mile'] = 10000
-        else:
-            print(f"{tokens[0]} mileage decreased by {tokens[1]} kilometers")
+        revert(cars, tokens[0], tokens[1])
 
     command = input()
 
