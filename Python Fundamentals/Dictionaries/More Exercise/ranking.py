@@ -10,7 +10,8 @@ def users(curr_results, curr_lang, curr_passwd, curr_username, curr_points, curr
         elif curr_lang not in curr_results[curr_username]:
             curr_results[curr_username][curr_lang] = curr_points
         else:
-            curr_results[curr_username][curr_lang] = max(curr_results[curr_username][curr_lang], curr_points)
+            curr_results[curr_username][curr_lang] = max(
+                curr_results[curr_username][curr_lang], curr_points)
     return curr_results
 
 
@@ -32,11 +33,7 @@ while data != 'end of submissions':
 
     data = input()
 
-best_result = {}
-for k, v in results.items():
-    best_result[k] = 0
-    for x, z in v.items():
-        best_result[k] += z
+best_result = {k: sum(z for x, z in v.items()) for k, v in results.items()}
 max_ = max(best_result.items(), key=lambda kvp: kvp[1])
 print(f"Best candidate is {max_[0]} with total {max_[1]} points.\nRanking:")
 for k, v in sorted(results.items(), key=lambda kvp: kvp[0]):
