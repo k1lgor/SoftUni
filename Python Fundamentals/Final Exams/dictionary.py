@@ -14,13 +14,13 @@ command = input()
 
 add(words, data)
 
-if command == 'Test':
+if command == "Test":
     for i in test_words:
         for k, v in words.items():
             if k == i:
                 print(f"{k}:")
                 for vv in sorted(v, key=lambda x: -len(x)):
                     print(f" -{vv.strip()}")
-elif command == 'Hand Over':
-    only_words = [k for k in sorted(words.keys())]
+elif command == "Hand Over":
+    only_words = list(sorted(words.keys()))
     print(*only_words)
