@@ -1,3 +1,13 @@
+def morse(data):
+    result = ''
+    for x in data:
+        if x in morse_code:
+            result += morse_code[x]
+        elif x == "|":
+            result += " "
+    print(result)
+
+
 morse_code = {
     '.-': 'A',
     '-...': 'B',
@@ -26,11 +36,5 @@ morse_code = {
     '-.--': 'Y',
     '--..': 'Z'
 }
-data = input().split(" ")
-result = ''
-for x in data:
-    if x in morse_code:
-        result += morse_code[x]
-    elif x == "|":
-        result += " "
-print(result)
+
+morse(input().split(" "))
