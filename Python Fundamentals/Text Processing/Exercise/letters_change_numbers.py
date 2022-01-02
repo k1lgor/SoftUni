@@ -1,5 +1,28 @@
-data = input()
-data_list = data.split()
+def change(data):
+    final_result = 0
+    for i in data:
+        first_letter = i[0]
+        last_letter = i[len(i) - 1:]
+        num = int(i[1:len(i) - 1])
+
+        def fl(fl, n):
+            return (
+                n / alphabet.get(fl.lower())
+                if fl.isupper()
+                else n * alphabet.get(fl.lower())
+            )
+        fl(first_letter, num)
+
+        def ll(ll, r1):
+            return (
+                r1 - alphabet.get(last_letter.lower())
+                if ll.isupper()
+                else r1 + alphabet.get(last_letter.lower())
+            )
+        ll(last_letter, fl(first_letter, num))
+        final_result += ll(last_letter, fl(first_letter, num))
+    print(f"{final_result:.2f}")
+
 
 alphabet = {
     "a": 1,
@@ -29,20 +52,6 @@ alphabet = {
     "y": 25,
     "z": 26,
 }
-final_result = 0
 
-for i in data_list:
-    first_letter = i[0]
-    last_letter = i[len(i) - 1:]
-    num = int(i[1:len(i) - 1])
 
-    if first_letter.isupper():
-        result1 = num / alphabet.get(first_letter.lower())
-    else:
-        result1 = num * alphabet.get(first_letter.lower())
-    if last_letter.isupper():
-        result2 = result1 - alphabet.get(last_letter.lower())
-    else:
-        result2 = result1 + alphabet.get(last_letter.lower())
-    final_result += result2
-print(f"{final_result:.2f}")
+change(input().split())

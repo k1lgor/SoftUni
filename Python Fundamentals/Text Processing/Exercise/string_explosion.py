@@ -1,18 +1,22 @@
-data = input().split(">")
+def string_exp(data, expl, charr, rslt):
+
+    for i in data:
+        if i[0].isdigit():
+            expl += int(i[0])
+            if expl >= len(i):
+                expl -= len(i)
+                charr = '>'
+            else:
+                charr = '>' + ''.join(i[expl:])
+                expl = 0
+        else:
+            charr = i
+        rslt.append(charr)
+    return rslt
+
+
 explosion = 0
 char = ''
 result = []
-
-for i in data:
-    if i[0].isdigit():
-        explosion += int(i[0])
-        if explosion >= len(i):
-            explosion -= len(i)
-            char = '>'
-        else:
-            char = '>' + ''.join(i[explosion:])
-            explosion = 0
-    else:
-        char = i
-    result.append(char)
+string_exp(input().split(">"), explosion, char, result)
 print(''.join(result))
