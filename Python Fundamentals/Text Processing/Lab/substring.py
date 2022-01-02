@@ -1,6 +1,8 @@
-string = input()
-substring = input()
+def substring(string, sub):
 
-while string in substring:
-    substring = substring.replace(string, "")
-print(substring)
+    while string in sub:
+        sub = sub.replace(string, "")
+    print(sub)
+
+
+substring(input(), input())

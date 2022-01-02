@@ -24,10 +24,8 @@ for ticket in data:
     if len(ticket) == 20:
         if jackpot(ticket):
             continue
-        if win_ticket(ticket):
-            continue
-        else:
+        if not win_ticket(ticket):
             print(f'ticket "{ticket}" - no match')
-            continue
+        continue
     else:
         print('invalid ticket')
