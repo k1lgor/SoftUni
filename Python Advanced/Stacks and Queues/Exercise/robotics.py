@@ -7,6 +7,7 @@ def conv_time(t):
 
 
 def conv_sec(s):
+    s %= 24 * 60 * 60
     h = s // 3600
     s %= 3600
     m = s // 60
@@ -18,21 +19,20 @@ data = input().split(";")
 time = conv_time(input())
 process_time = {}
 busy_time = {}
+items = deque()
+product = input()
 
 for i in data:
     name, t = i.split("-")
     process_time[name] = int(t)
     busy_time[name] = -1
 
-items = deque()
-product = input()
 while 'End' not in product:
     items.append(product)
     product = input()
 
 while items:
     time += 1
-    time %= 86400
     item = items.popleft()
     for k, v in busy_time.items():
         if time >= v:
