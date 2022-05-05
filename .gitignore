@@ -9,3 +9,6 @@ Python Fundamentals/.vscode/launch.json
 Python Fundamentals/.vscode/settings.json
 Python Advanced/File Handling/.vscode
 Python Advanced/File Handling/file_handling/.vscode
+__pycache__
+*.zip
+*.docx
