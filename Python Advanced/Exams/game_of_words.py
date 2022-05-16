@@ -1,8 +1,10 @@
+import itertools
+
+
 def player_pos(m, s):
-    for x in range(s):
-        for y in range(s):
-            if m[x][y] == 'P':
-                return [x, y]
+    for x, y in itertools.product(range(s), range(s)):
+        if m[x][y] == 'P':
+            return [x, y]
 
 
 def inside(x, y, s):
@@ -39,28 +41,28 @@ for _ in range(turns):
         new_row, new_col = up(row, col)
         if new_row == -1:
             if text:
-                text = text[:len(text) - 1]
+                text = text[:-1]
             outside = True
 
     elif turn == 'right':
         new_row, new_col = right(row, col)
         if new_col >= size:
             if text:
-                text = text[:len(text) - 1]
+                text = text[:-1]
             outside = True
 
     elif turn == 'down':
         new_row, new_col = down(row, col)
         if new_row >= size:
             if text:
-                text = text[:len(text) - 1]
+                text = text[:-1]
             outside = True
 
     elif turn == 'left':
         new_row, new_col = left(row, col)
         if new_col == -1:
             if text:
-                text = text[:len(text) - 1]
+                text = text[:-1]
             outside = True
 
     if not outside:

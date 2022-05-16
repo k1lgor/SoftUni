@@ -5,9 +5,9 @@ def numbers_searching(*args):
             unique[str(x)] = 0
         else:
             unique[str(x)] += 1
-    missing = [x for x in range(min(args), max(args) + 1)]
+    missing = list(range(min(args), max(args) + 1))
     dublicates = [int(k) for k, v in unique.items() if v > 0]
-    
+
     diff = list(set(missing).difference(set(args)))
     return [diff[0], sorted(dublicates)]
 

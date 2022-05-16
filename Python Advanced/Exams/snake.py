@@ -1,17 +1,14 @@
+import itertools
+
+
 def snake(m, s):
-    for row in range(s):
-        for col in range(s):
-            if m[row][col] == 'S':
-                return [row, col]
+    for row, col in itertools.product(range(s), range(s)):
+        if m[row][col] == 'S':
+            return [row, col]
 
 
 def lair(m, s):
-    temp = []
-    for row in range(s):
-        for col in range(s):
-            if m[row][col] == 'B':
-                temp.append([row, col])
-    return temp
+    return [[row, col] for row, col in itertools.product(range(s), range(s)) if m[row][col] == 'B']
 
 
 def inside(x,  y, s):
@@ -34,46 +31,50 @@ def if_food(m, sp, s):
 
 def up(m, x, y, s, lp):
     if inside(x - 1, y, s):
-        if m[x - 1][y] == 'B' and [x - 1, y] == lp[0]:
-            return lp[1]
-        elif m[x - 1][y] == 'B' and [x - 1, y] == lp[1]:
-            return lp[0]
+        if m[x - 1][y] == 'B':
+            if [x - 1, y] == lp[0]:
+                return lp[1]
+            elif [x - 1, y] == lp[1]:
+                return lp[0]
         return [x - 1, y]
     return []
 
 
 def down(m, x, y, s, lp):
     if inside(x + 1, y, s):
-        if m[x + 1][y] == 'B' and [x + 1, y] == lp[0]:
-            return lp[1]
-        elif m[x + 1][y] == 'B' and [x + 1, y] == lp[1]:
-            return lp[0]
+        if m[x + 1][y] == 'B':
+            if [x + 1, y] == lp[0]:
+                return lp[1]
+            elif [x + 1, y] == lp[1]:
+                return lp[0]
         return [x + 1, y]
     return []
 
 
 def right(m, x, y, s, lp):
     if inside(x, y + 1, s):
-        if m[x][y + 1] == 'B' and [x, y + 1] == lp[0]:
-            return lp[1]
-        elif m[x][y + 1] == 'B' and [x, y + 1] == lp[1]:
-            return lp[0]
+        if m[x][y + 1] == 'B':
+            if [x, y + 1] == lp[0]:
+                return lp[1]
+            elif [x, y + 1] == lp[1]:
+                return lp[0]
         return [x, y + 1]
     return []
 
 
 def left(m, x, y, s, lp):
     if inside(x, y - 1, s):
-        if m[x][y - 1] == 'B' and [x, y - 1] == lp[0]:
-            return lp[1]
-        elif m[x][y - 1] == 'B' and [x, y - 1] == lp[1]:
-            return lp[0]
+        if m[x][y - 1] == 'B':
+            if [x, y - 1] == lp[0]:
+                return lp[1]
+            elif [x, y - 1] == lp[1]:
+                return lp[0]
         return [x, y - 1]
     return []
 
 
 size = int(input())
-matrix = [[x for x in input()] for _ in range(size)]
+matrix = [list(input()) for _ in range(size)]
 
 snake_pos = snake(matrix, size)
 lairs_pos = lair(matrix, size)
@@ -82,9 +83,7 @@ food = 0
 out = False
 
 
-while True:
-    if food >= 10:
-        break
+while food < 10:
     move = input()
 
     row, col = tuple(snake_pos)

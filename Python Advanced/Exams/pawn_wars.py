@@ -1,15 +1,16 @@
+import itertools
+
+
 def white_pos(mtrx, size):
-    for row in range(size):
-        for col in range(size):
-            if mtrx[row][col] == 'w':
-                return [row, col]
+    for row, col in itertools.product(range(size), range(size)):
+        if mtrx[row][col] == 'w':
+            return [row, col]
 
 
 def black_pos(mtrx, size):
-    for row in range(size):
-        for col in range(size):
-            if mtrx[row][col] == 'b':
-                return [row, col]
+    for row, col in itertools.product(range(size), range(size)):
+        if mtrx[row][col] == 'b':
+            return [row, col]
 
 
 def board(rowW, colW, rowB, colB, pos):
@@ -18,10 +19,10 @@ def board(rowW, colW, rowB, colB, pos):
 
     capW = False
     capB = False
-    while (1):
+    while 1:
 
-        if (rowW != 0):
-            if (rowW == rowB + 1 and (colW == colB - 1 or colW == colB + 1)):
+        if rowW != 0:
+            if rowW == rowB + 1 and colW in [colB - 1, colB + 1]:
                 capB = True
                 for k, v in pos.items():
                     if (rowB, colB) == v:
@@ -37,8 +38,8 @@ def board(rowW, colW, rowB, colB, pos):
                         f"Game over! White pawn is promoted to a queen at {k}.")
                     break
             break
-        if (rowB != 7):
-            if (rowW == rowB + 1 and (colW == colB - 1 or colW == colB + 1)):
+        if rowB != 7:
+            if rowW == rowB + 1 and colW in [colB - 1, colB + 1]:
                 capW = True
                 for k, v in pos.items():
                     if (rowW, colW) == v:

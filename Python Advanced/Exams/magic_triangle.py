@@ -4,9 +4,8 @@ from math import factorial
 def get_magic_triangle(n):
     triangle = []
     for i in range(n):
-        temp = []
-        for j in range(i+1):
-            temp.append(factorial(i) // (factorial(j) * factorial(i - j)))
+        temp = [factorial(i) // (factorial(j) * factorial(i - j))
+                for j in range(i+1)]
         triangle.append(temp)
     return triangle
 

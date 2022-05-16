@@ -16,14 +16,14 @@ def list_manipulator(nums, *args):
         if tokens[0] == 'beginning':
             if len(tokens) < 2:
                 nums.popleft()
-            elif len(tokens) >= 2:
-                for x in range(tokens[1]):
+            else:
+                for _ in range(tokens[1]):
                     nums.popleft()
         if tokens[0] == 'end':
             if len(tokens) < 2:
                 nums.pop()
-            elif len(tokens) >= 2:
-                for x in range(tokens[1]):
+            else:
+                for _ in range(tokens[1]):
                     nums.pop()
     return list(nums)
 

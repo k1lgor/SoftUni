@@ -1,8 +1,8 @@
+import itertools
 def king(m, s):
-    for x in range(s):
-        for y in range(s):
-            if m[x][y] == 'K':
-                return [x, y]
+    for x, y in itertools.product(range(s), range(s)):
+        if m[x][y] == 'K':
+            return [x, y]
 
 
 def up(m, x, y):

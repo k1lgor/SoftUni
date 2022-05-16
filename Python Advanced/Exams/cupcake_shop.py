@@ -9,19 +9,19 @@ def stock_availability(box, command, *args):
             for arg in args:
                 if not str(arg).isalpha():
                     box.reverse()
-                    for i in range(arg):
+                    for _ in range(arg):
                         box.pop()
                     box.reverse()
                 elif arg.isalpha():
                     if arg in box:
                         while arg in box:
                             box.remove(arg)
-            return box
         else:
             box.reverse()
             box.pop()
             box.reverse()
-            return box
+
+        return box
 
 
 print(stock_availability(

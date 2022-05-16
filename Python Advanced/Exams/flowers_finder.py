@@ -12,20 +12,29 @@ isTulip = False
 isLotus = False
 isDaffodil = False
 
-while vowels and consonants:
-    if isRose:
-        break
-    if isTulip:
-        break
-    if isLotus:
-        break
-    if isDaffodil:
-        break
+while vowels and consonants and not isRose and not isTulip and not isLotus and not isDaffodil:
     vow = vowels.popleft()
     conso = consonants.pop()
 
     for word in words:
-        if word == 'rose':
+        if word == 'daffodil':
+            if vow in word:
+                daffodil_word = daffodil_word.replace(vow, '')
+            if conso in word:
+                daffodil_word = daffodil_word.replace(conso, '')
+            if daffodil_word == '':
+                isDaffodil = True
+                break
+
+        elif word == 'lotus':
+            if vow in word:
+                lotus_word = lotus_word.replace(vow, '')
+            if conso in word:
+                lotus_word = lotus_word.replace(conso, '')
+            if lotus_word == '':
+                isLotus = True
+                break
+        elif word == 'rose':
             if vow in rose_word:
                 rose_word = rose_word.replace(vow, '')
             if conso in rose_word:
@@ -41,24 +50,6 @@ while vowels and consonants:
             if tulip_word == '':
                 isTulip = True
                 break
-        elif word == 'lotus':
-            if vow in word:
-                lotus_word = lotus_word.replace(vow, '')
-            if conso in word:
-                lotus_word = lotus_word.replace(conso, '')
-            if lotus_word == '':
-                isLotus = True
-                break
-        elif word == 'daffodil':
-            if vow in word:
-                daffodil_word = daffodil_word.replace(vow, '')
-            if conso in word:
-                daffodil_word = daffodil_word.replace(conso, '')
-            if daffodil_word == '':
-                isDaffodil = True
-                break
-
-
 if isRose:
     print("Word found: rose")
 if isTulip:

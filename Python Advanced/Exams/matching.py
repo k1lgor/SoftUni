@@ -6,7 +6,7 @@ females = deque([int(x) for x in input().split()])
 matches = 0
 
 while males and females:
-    if males and not males[-1] % 25 and males[-1] != 0:
+    if not males[-1] % 25 and males[-1] != 0:
         males.pop()
         males.pop()
         continue
@@ -25,9 +25,8 @@ while males and females:
         females.popleft()
         matches += 1
         continue
-    if males[-1] != females[0]:
-        females.popleft()
-        males[-1] -= 2
+    females.popleft()
+    males[-1] -= 2
 
 
 print(f"Matches: {matches}")

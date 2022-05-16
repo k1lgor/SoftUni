@@ -1,10 +1,6 @@
 jobs = [int(x) for x in input().split(', ')]
 index = int(input())
 
-jobs_before_finish = []
+jobs_before_finish = [job for job in jobs if jobs[index] >= job]
 
-for i in range(len(jobs)):
-    if jobs[index] >= jobs[i]:
-        jobs_before_finish.append(jobs[i])
 print(sum(jobs_before_finish))
-

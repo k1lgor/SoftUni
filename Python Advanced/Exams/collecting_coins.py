@@ -1,11 +1,11 @@
+import itertools
 import math
 
 
 def player_pos(m, s):
-    for row in range(s):
-        for col in range(s):
-            if m[row][col] == 'P':
-                return [row, col]
+    for row, col in itertools.product(range(s), range(s)):
+        if m[row][col] == 'P':
+            return [row, col]
 
 
 def up(x, y):
@@ -29,12 +29,11 @@ def inside(x, y, s):
 
 
 size = int(input())
-matrix = [[x for x in input().split()] for _ in range(size)]
+matrix = [list(input().split()) for _ in range(size)]
 coins = 0
 
 player_pos = player_pos(matrix, size)
-path = []
-path.append([player_pos[0], player_pos[1]])
+path = [[player_pos[0], player_pos[1]]]
 loss = False
 while True:
     if coins >= 100:
@@ -75,5 +74,5 @@ if not loss:
 else:
     print(f"Game over! You've collected {coins} coins.")
 print("Your path:")
-for x in range(len(path)):
-    print(path[x])
+for item in path:
+    print(item)

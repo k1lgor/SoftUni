@@ -7,9 +7,7 @@ def best_list_pureness(nums, k):
     rotations = 0
     length = len(nums)
     for rotate in range(k + 1):
-        pure = 0
-        for i in range(length):
-            pure += i * nums[i]
+        pure = sum(i * nums[i] for i in range(length))
         if pure > pureness:
             pureness = pure
             rotations = rotate

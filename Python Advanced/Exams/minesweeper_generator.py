@@ -1,11 +1,8 @@
 size = int(input())
 bombs = int(input())
 
-board = [[0 for i in range(size)] for j in range(size)]
-mines = []
-for mine in range(bombs):
-    mines.append(eval(input()))
-
+board = [[0 for _ in range(size)] for _ in range(size)]
+mines = [eval(input()) for _ in range(bombs)]
 for mine in mines:
     x, y = mine
     board[x][y] = '*'
