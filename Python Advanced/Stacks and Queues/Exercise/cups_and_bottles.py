@@ -5,9 +5,7 @@ filled_bottles = [int(x) for x in input().split(' ')]
 
 wasted_water = 0
 
-while True:
-    if not filled_bottles or not cups_capacity:
-        break
+while filled_bottles and cups_capacity:
     if filled_bottles[-1] >= cups_capacity[0]:
         wasted_water += filled_bottles[-1] - cups_capacity[0]
         cups_capacity.popleft()

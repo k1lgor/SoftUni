@@ -9,9 +9,7 @@ intelligence = int(input())
 ttl_bullets = 0
 counter = 0
 
-while True:
-    if not bullets or len(locks) == 0:
-        break
+while bullets and len(locks) != 0:
     if bullets.pop() > locks[0]:
         print("Ping!")
     else:
