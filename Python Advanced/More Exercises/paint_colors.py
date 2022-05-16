@@ -16,8 +16,8 @@ while data:
     else:
         color = data.pop()
     if color not in ['red', 'yellow', 'blue', 'orange', 'purple', 'green']:
-        first = first[:len(first)-1]
-        last = last[:len(last)-1]
+        first = first[:-1]
+        last = last[:-1]
         if first:
             data.insert(len(data) // 2, first)
         if last:

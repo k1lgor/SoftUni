@@ -9,9 +9,7 @@ materials = {
     'Smoke Decoy Bombs': 0
 }
 
-while effect and casing:
-    if materials['Datura Bombs'] > 2 and materials['Cherry Bombs'] > 2 and materials['Smoke Decoy Bombs'] > 2:
-        break
+while effect and casing and (materials['Datura Bombs'] <= 2 or materials['Cherry Bombs'] <= 2 or materials['Smoke Decoy Bombs'] <= 2):
     e = effect.popleft()
     c = casing.pop()
     ttl = e + c

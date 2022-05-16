@@ -23,7 +23,7 @@ while chocolates and milk_cups and milkshakes < 5:
     elif chocolates[-1] <= 0:
         chocolates.pop()
         continue
-    elif milk_cups[0] <= 0:
+    else:
         milk_cups.popleft()
         continue
 
