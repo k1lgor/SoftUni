@@ -19,4 +19,4 @@ max_len = ""
 for i in inter:
     if len(i) > len(max_len):
         max_len = i
-print(f"Longest intersection is {[x for x in max_len]} with length {len(max_len)}")
+print(f"Longest intersection is {list(max_len)} with length {len(max_len)}")
