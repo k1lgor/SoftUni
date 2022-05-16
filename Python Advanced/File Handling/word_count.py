@@ -19,8 +19,7 @@ def finder(searched_words):
 def counter():
     searched_words = []
     with open('words.txt') as file:
-        for x in file.read().split():
-            searched_words.append(x)
+        searched_words.extend(iter(file.read().split()))
     return finder(searched_words)
 
 
