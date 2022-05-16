@@ -1,5 +1,5 @@
 size = int(input())
-matrix = [list(input().split()) for x in range(size)]
+matrix = [list(input().split()) for _ in range(size)]
 symbol = input()
 
 pos = 0
