@@ -1,8 +1,10 @@
+import itertools
+
+
 def alice_pos(mtrx, sz):
-    for row in range(sz):
-        for col in range(sz):
-            if mtrx[row][col] == 'A':
-                return [row, col]
+    for row, col in itertools.product(range(sz), range(sz)):
+        if mtrx[row][col] == 'A':
+            return [row, col]
 
 
 def inside(row, col, sz):

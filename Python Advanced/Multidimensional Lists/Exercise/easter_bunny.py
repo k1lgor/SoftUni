@@ -1,8 +1,10 @@
+import itertools
+
+
 def bunny_pos(mtrx, sz):
-    for row in range(size):
-        for col in range(size):
-            if mtrx[row][col] == 'B':
-                return [row, col]
+    for row, col in itertools.product(range(size), range(size)):
+        if mtrx[row][col] == 'B':
+            return [row, col]
 
 
 def up(row, col):

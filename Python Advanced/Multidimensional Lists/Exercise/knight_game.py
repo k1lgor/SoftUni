@@ -47,11 +47,10 @@ while True:
         for col in range(size):
             if matrix[row][col] == '0':
                 continue
-            counter = attack_counter(row, col, matrix)
-            if counter:
+            if counter := attack_counter(row, col, matrix):
                 table[(row, col)] = counter
 
-    if len(table) == 0:
+    if not table:
         break
 
     best_counter = 0

@@ -2,6 +2,5 @@ data = input().split('|')
 matrix = []
 
 while data:
-    for ele in data.pop().split():
-        matrix.append(ele)
+    matrix.extend(iter(data.pop().split()))
 print(*matrix, sep=' ')

@@ -1,18 +1,17 @@
-# finding player's position
+import itertools
+
+
 def player_pos(mtrx, x, y):
-    for row in range(x):
-        for col in range(y):
-            if mtrx[row][col] == 'P':
-                return [row, col]
+    for row, col in itertools.product(range(x), range(y)):
+        if mtrx[row][col] == 'P':
+            return [row, col]
 
 
 # finding bunny position/s
 def bunny_pos(mtrx, x, y, pos):
-    pos = []
-    for row in range(x):
-        for col in range(y):
-            if mtrx[row][col] == 'B':
-                pos.append([row, col])
+    pos = [[row, col] for row, col in itertools.product(
+        range(x), range(y)) if mtrx[row][col] == 'B']
+
     return pos
 
 
