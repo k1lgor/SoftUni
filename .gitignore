@@ -12,3 +12,4 @@ Python Advanced/File Handling/file_handling/.vscode
 __pycache__
 *.zip
 *.docx
+.vscode
