@@ -3,32 +3,30 @@ gender = input()
 age = int(input())
 sport = input()
 
-if gender == 'm':
-    if sport == 'Gym':
-        price = 42
-    elif sport == 'Boxing':
-        price = 41
-    elif sport == 'Yoga':
-        price = 45
-    elif sport == 'Zumba':
-        price = 34
-    elif sport == 'Dances':
-        price = 51
-    elif sport == 'Pilates':
-        price = 39
 if gender == 'f':
-    if sport == 'Gym':
-        price = 35
-    elif sport == 'Boxing':
+    if sport in ['Boxing', 'Pilates']:
         price = 37
+    elif sport == 'Dances':
+        price = 53
+    elif sport == 'Gym':
+        price = 35
     elif sport == 'Yoga':
         price = 42
     elif sport == 'Zumba':
         price = 31
+elif gender == 'm':
+    if sport == 'Boxing':
+        price = 41
     elif sport == 'Dances':
-        price = 53
+        price = 51
+    elif sport == 'Gym':
+        price = 42
     elif sport == 'Pilates':
-        price = 37
+        price = 39
+    elif sport == 'Yoga':
+        price = 45
+    elif sport == 'Zumba':
+        price = 34
 ttl = price
 if age <= 19:
     ttl *= 0.8

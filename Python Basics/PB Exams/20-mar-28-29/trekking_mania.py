@@ -5,7 +5,7 @@ g3 = 0
 g4 = 0
 g5 = 0
 ttl = 0
-for i in range(groups):
+for _ in range(groups):
     ppl = int(input())
     if ppl <= 5:
         g1 += ppl

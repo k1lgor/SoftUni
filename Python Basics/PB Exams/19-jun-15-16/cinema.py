@@ -8,12 +8,12 @@ while command != 'Movie time!':
         print(f'There are {abs(capacity)} seats left in the cinema.')
         break
     if capacity == 0:
-        print(f'The cinema is full.')
+        print('The cinema is full.')
         break
     ppl = int(command)
     capacity -= ppl
     if capacity < 0:
-        print(f'The cinema is full.')
+        print('The cinema is full.')
         break
     price = ppl * 5
     if ppl % 3 == 0:

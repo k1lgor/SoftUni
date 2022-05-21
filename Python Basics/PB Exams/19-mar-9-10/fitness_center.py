@@ -8,21 +8,21 @@ shake = 0
 bar = 0
 
 
-for i in range(visitors):
+for _ in range(visitors):
     text = input()
-    if text == 'Back':
+    if text == 'Abs':
+        ABS += 1
+    elif text == 'Back':
         back += 1
     elif text == 'Chest':
         chest += 1
     elif text == 'Legs':
         legs += 1
-    elif text == 'Abs':
-        ABS += 1
-    elif text == 'Protein shake':
-        shake += 1
     elif text == 'Protein bar':
         bar += 1
 
+    elif text == 'Protein shake':
+        shake += 1
 print(f'{back} - back')
 print(f'{chest} - chest')
 print(f'{legs} - legs')

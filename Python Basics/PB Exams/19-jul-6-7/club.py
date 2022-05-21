@@ -5,14 +5,14 @@ ttl = 0
 single_order = 0
 while cocktail != 'Party!':
     if ttl >= wanted_money:
-        print(f'Target acquired.')
+        print('Target acquired.')
         break
     cocktail = input()
     if cocktail == 'Party!':
         print(f'We need {abs(wanted_money - ttl):.2f} leva more.')
         break
     num_cocktails = int(input())
-    cocktail_price = int(len(cocktail))
+    cocktail_price = len(cocktail)
     single_order = cocktail_price * num_cocktails
     if single_order % 2 != 0:
         single_order *= 0.75

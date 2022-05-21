@@ -5,9 +5,9 @@ ttl = 0
 grand = 0
 ttl_won = 0
 ttl_lost = 0
-for i in range(days):
+result = ''
+for _ in range(days):
     games = ''
-    result = ''
     ttl = 0
     lost = 0
     won = 0

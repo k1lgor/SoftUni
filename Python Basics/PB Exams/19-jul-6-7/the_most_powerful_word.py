@@ -5,7 +5,7 @@ asci_sum = 0
 best_sum = 0
 while word != 'End of words':
     name_len = len(word)
-    for i, d in enumerate(word):
+    for d in word:
         asci_sum += ord(d)
     if word[0] in ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y']:
         asci_sum *= name_len

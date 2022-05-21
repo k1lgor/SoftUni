@@ -4,7 +4,7 @@ grade = ''
 cur_points = 0
 best_points = 0
 best_name = ''
-for i in range(kozunak):
+for _ in range(kozunak):
     name = input()
     while grade != 'Stop':
         grade = input()

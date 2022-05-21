@@ -1,1 +1,1 @@
-print(f'{(float(input()) * float(input()) / 2):.2f}')
+print(f'{float(input())**2 / 2:.2f}')

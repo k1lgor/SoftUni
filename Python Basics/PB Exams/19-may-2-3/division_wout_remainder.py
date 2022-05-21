@@ -3,7 +3,7 @@ p1 = 0
 p2 = 0
 p3 = 0
 
-for i in range(1, n + 1):
+for _ in range(1, n + 1):
     nn = int(input())
     if nn % 2 == 0:
         p1 += 1

@@ -29,7 +29,7 @@ if mobile == 'yes':
         tax += 5.5
     elif 10 < tax <= 30:
         tax += 4.35
-    elif tax > 30:
+    else:
         tax += 3.85
 ttl = tax * months
 if time == 'two':

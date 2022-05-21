@@ -19,4 +19,4 @@ elif ttl > cm:
     print(
         f'All walls are painted and you have {abs(ttl - cm):.0f} l paint left!')
 elif cm == ttl:
-    print(f'All walls are painted! Great job, Pesho!')
+    print('All walls are painted! Great job, Pesho!')
