@@ -1,11 +1,11 @@
 text = input()
-sum = 0
+sum_total = 0
 while text != 'NoMoreMoney':
     num = float(text)
     if num < 0:
         print('Invalid operation!')
         break
-    sum += num
+    sum_total += num
     print(f'Increase: {num:.2f}')
     text = input()
-print(f'Total: {sum:.2f}')
+print(f'Total: {sum_total:.2f}')

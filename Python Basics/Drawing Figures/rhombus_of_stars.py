@@ -4,7 +4,7 @@ for i in range(1, count + 1):
     print(" " * (count - i), end="")
     print("*", end="")
 
-    for j in range(i-1):
+    for _ in range(i-1):
         print(" *", end="")
 
     print()
