@@ -7,7 +7,7 @@ flout = 0
 sugar = 0
 ttl_sugar = 0
 ttl_flour = 0
-for i in range(breads):
+for _ in range(breads):
     cur_sugar = int(input())
     cur_flour = int(input())
     if cur_sugar > max_sugar:

@@ -3,11 +3,11 @@ avr_gold_per_day = 0
 working_days = 0
 ttl = 0
 extract = 0
-for i in range(locations):
+for _ in range(locations):
     avr_gold_per_day = float(input())
     days = int(input())
     ttl = 0
-    for j in range(days):
+    for _ in range(days):
         extract = float(input())
         ttl += extract
     ttl /= days

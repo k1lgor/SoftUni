@@ -7,16 +7,16 @@ green = 0
 text = ''
 max_eggs = 0
 color = ''
-for i in range(colored_eggs):
+for _ in range(colored_eggs):
     text = input()
-    if text == 'red':
-        red += 1
-    elif text == 'orange':
-        orange += 1
-    elif text == 'blue':
+    if text == 'blue':
         blue += 1
     elif text == 'green':
         green += 1
+    elif text == 'orange':
+        orange += 1
+    elif text == 'red':
+        red += 1
 if red > max_eggs:
     max_eggs = red
     color = 'red'

@@ -6,8 +6,7 @@ days = int(input())
 if days > 7:
     days -= 1
 
-if not (city in ['Bansko', 'Borovets'] and packet in ['noEquipment', 'withEquipment']) and not (city in ['Varna', 'Burgas'] and packet in \
-['noBreakfast', 'withBreakfast']):
+if (city not in ['Bansko', 'Borovets'] or packet not in ['noEquipment', 'withEquipment']) and (city not in ['Varna', 'Burgas'] or packet not in ['noBreakfast', 'withBreakfast']):
     print('Invalid input!')
 
 elif days < 1:
@@ -23,14 +22,13 @@ else:
             ttl = days * 100
             if vip == 'yes':
                 ttl *= 0.9
-    elif city in ['Varna', 'Burgas']:
-        if packet == 'noBreakfast':
-            ttl = days * 100
-            if vip == 'yes':
-                ttl *= 0.93
-        elif packet == 'withBreakfast':
-            ttl = days * 130
-            if vip == 'yes':
-                ttl *= 0.88
+    elif packet == 'noBreakfast':
+        ttl = days * 100
+        if vip == 'yes':
+            ttl *= 0.93
+    elif packet == 'withBreakfast':
+        ttl = days * 130
+        if vip == 'yes':
+            ttl *= 0.88
 
     print(f'The price is {ttl:.2f}lv! Have a nice time!')

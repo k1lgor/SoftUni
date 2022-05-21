@@ -4,7 +4,7 @@ group1 = 0
 group2 = 0
 group3 = 0
 price_food = 0
-for i in range(cats):
+for _ in range(cats):
     grams_food = float(input())
     if 100 <= grams_food < 200:
         group1 += 1
