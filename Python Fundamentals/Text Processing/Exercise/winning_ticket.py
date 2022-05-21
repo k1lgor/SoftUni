@@ -1,3 +1,6 @@
+import itertools
+
+
 def jackpot(t):
     for s in symbols:
         if s in ticket and ticket.count(s) == 20:
@@ -9,11 +12,10 @@ def jackpot(t):
 def win_ticket(t):
     left = ticket[:10]
     right = ticket[10:]
-    for s in symbols:
-        for i in range(9, 5, -1):
-            if s * i in left and s * i in right:
-                print(f'ticket "{ticket}" - {i}{s}')
-                return True
+    for s, i in itertools.product(symbols, range(9, 5, -1)):
+        if s * i in left and s * i in right:
+            print(f'ticket "{ticket}" - {i}{s}')
+            return True
     return False
 
 

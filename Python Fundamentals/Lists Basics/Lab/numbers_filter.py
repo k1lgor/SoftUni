@@ -5,7 +5,7 @@ for _ in range(n):
     num = int(input())
     nums.append(num)
 command = input()
-filter = [
+filters = [
     i
     for i in nums
     if command == 'even'
@@ -23,4 +23,4 @@ filter = [
     and command == 'positive'
     and i >= 0
 ]
-print(filter)
+print(filters)

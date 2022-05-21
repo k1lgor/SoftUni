@@ -18,10 +18,10 @@ for index in range(len(wagon)):
         free_seats = 4 - wagon[index]
         wagon[index] += free_seats
         queue -= free_seats
-    elif wagon[index] < 4 and queue < 4:
+    elif wagon[index] < 4:
         wagon[index] += queue
         queue -= queue
-        
+
 total_seats = sum(wagon)
 empty_seats = len(wagon) * 4 - total_seats
 empty_spots(empty_seats, queue, ppl)

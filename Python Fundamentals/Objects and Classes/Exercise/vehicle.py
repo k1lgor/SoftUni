@@ -1,6 +1,6 @@
 class Vehicle:
-    def __init__(self, type, model, price):
-        self.type = type
+    def __init__(self, type_of, model, price):
+        self.type_of = type_of
         self.model = model
         self.price = price
         self.owner = None
@@ -10,9 +10,9 @@ class Vehicle:
             return "Car already sold"
         elif money < self.price:
             return "Sorry, not enough money"
-        elif money >= self.price:
+        else:
             self.owner = owner
-            return f"Successfully bought a {self.type}. Change: {money - self.price:.2f}"
+            return f"Successfully bought a {self.type_of}. Change: {money - self.price:.2f}"
 
     def sell(self):
         if self.owner:
@@ -22,14 +22,14 @@ class Vehicle:
 
     def __repr__(self):
         if self.owner != None:
-            return f"{self.model} {self.type} is owned by: {self.owner}"
-        return f"{self.model} {self.type} is on sale: {self.price}"
+            return f"{self.model} {self.type_of} is owned by: {self.owner}"
+        return f"{self.model} {self.type_of} is on sale: {self.price}"
 
 
-type = "car"
+type_of = "car"
 model = "BMW"
 price = 30000
-vehicle = Vehicle(type, model, price)
+vehicle = Vehicle(type_of, model, price)
 vehicle.buy(15000, "Peter")
 vehicle.buy(35000, "George")
 print(vehicle)

@@ -7,8 +7,7 @@ match = re.findall(r"\d", data)
 for i in match:
     threshold *= int(i)
 
-emoji = [i for i in (x.group()
-                     for x in re.finditer(r"(::|\*\*)([A-Z][a-z]{2,})\1", data))]
+emoji = [x.group() for x in re.finditer(r"(::|\*\*)([A-Z][a-z]{2,})\1", data)]
 
 print(
     f"Cool threshold: {threshold}\n{len(emoji)} emojis found in the text. The cool ones are:")

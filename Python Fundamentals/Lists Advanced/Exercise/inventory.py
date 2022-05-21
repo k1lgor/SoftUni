@@ -35,9 +35,6 @@ def renew():
 while 'Craft!' not in command:
 
     item = command[1]
-    if 'Craft!' in command:
-        break
-
     if 'Collect' in command:
         collect()
     elif 'Drop' in command:

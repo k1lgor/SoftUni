@@ -9,7 +9,7 @@ for _ in range(number):
     product_group = ''
 
     if barcode:
-        for i in barcode.group(2):
+        for i in barcode[2]:
             if i.isdigit():
                 product_group += i
         if product_group == '':

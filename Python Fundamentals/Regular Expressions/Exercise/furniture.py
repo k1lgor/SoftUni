@@ -5,9 +5,7 @@ furnitures = {}
 result = 0
 
 while data != "Purchase":
-    regex = re.match(
-        r">>(?P<furniture>[A-Za-z]+)<<(?P<price>\d+(\.\d+)?)\!(?P<quantity>\d+)", data)
-    if regex:
+    if regex := re.match(r">>(?P<furniture>[A-Za-z]+)<<(?P<price>\d+(\.\d+)?)\!(?P<quantity>\d+)", data):
         if regex['furniture'] not in furnitures:
             furnitures[regex['furniture']] = [
                 float(regex['price']) * int(regex['quantity'])]

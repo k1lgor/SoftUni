@@ -15,12 +15,9 @@ for i in range(1, days + 1):
     food = 2 * group
     total += daily - food
     if i % 5 == 0:
-        if i % 3 == 0:
-            total += 20 * group - 2 * group
-        else:
-            total += 20 * group
+        total += 20 * group - 2 * group if i % 3 == 0 else 20 * group
     if i % 3 == 0:
         water = 3 * group
         total -= water
-    
+
 print(f'{group} companions received {floor(total / group)} coins each.')

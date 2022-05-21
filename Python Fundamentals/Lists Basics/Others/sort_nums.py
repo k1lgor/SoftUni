@@ -1,5 +1,4 @@
-l = list(map(int, input().split()))
-l.sort()
+l = sorted(map(int, input().split()))
 l = list(map(str, l))
 new = []
 string = ' <= '

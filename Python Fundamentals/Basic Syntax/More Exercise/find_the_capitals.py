@@ -1,8 +1,4 @@
 text = input()
-list = []
+curr_list = [i for i in range(len(text)) if text[i].isupper()]
 
-for i in range(len(text)):
-    if text[i].isupper():
-        list.append(i)
-
-print(list)
+print(curr_list)

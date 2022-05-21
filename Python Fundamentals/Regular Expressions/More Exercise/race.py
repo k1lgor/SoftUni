@@ -1,6 +1,6 @@
 import re
 
-names = [x for x in input().split(", ")]
+names = list(input().split(", "))
 command = input()
 regex_names = {}
 

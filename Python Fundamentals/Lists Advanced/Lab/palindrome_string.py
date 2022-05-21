@@ -1,4 +1,4 @@
-string = [ele for ele in input().split()]
+string = list(input().split())
 pali = input()
 
 print([ele for ele in string if ele == ele[::-1]])

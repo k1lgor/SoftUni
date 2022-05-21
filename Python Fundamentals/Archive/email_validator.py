@@ -15,8 +15,7 @@ def email_validator(d, c):
             print(d[-3:])
         elif c == 'GetUsername':
             if '@' in d:
-                match = re.findall(r"([a-z0-9]+)@", d, re.IGNORECASE)
-                if match:
+                if match := re.findall(r"([a-z0-9]+)@", d, re.IGNORECASE):
                     print(''.join(match))
             else:
                 print(f"The email {d} doesn't contain the @ symbol.")

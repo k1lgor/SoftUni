@@ -15,11 +15,10 @@ def centerPoint():
             print(f'({floor(x1)}, {floor(y1)})({floor(x2)}, {floor(y2)})')
         else:
             print(f'({floor(x2)}, {floor(y2)})({floor(x1)}, {floor(y1)})')
+    elif third <= fourth:
+        print(f'({floor(x3)}, {floor(y3)})({floor(x4)}, {floor(y4)})')
     else:
-        if third <= fourth:
-            print(f'({floor(x3)}, {floor(y3)})({floor(x4)}, {floor(y4)})')
-        else:
-            print(f'({floor(x4)}, {floor(y4)})({floor(x3)}, {floor(y3)})')
+        print(f'({floor(x4)}, {floor(y4)})({floor(x3)}, {floor(y3)})')
 
 
 x1, y1, x2, y2 = float(input()), float(input()), float(input()), float(input())

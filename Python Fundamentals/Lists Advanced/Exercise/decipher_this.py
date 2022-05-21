@@ -12,7 +12,7 @@ for word in string:
     length_word = len(word)
     second_letter = word[1]
     last_letter = word[length_word - 1]
-    word = [ele for ele in word]
+    word = list(word)
     word.pop(1) and word.insert(1, last_letter)
     word.pop() and word.append(second_letter)
     LIST.append(''.join(word))

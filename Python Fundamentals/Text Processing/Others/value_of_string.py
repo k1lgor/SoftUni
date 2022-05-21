@@ -1,4 +1,4 @@
-string = [x for x in input()]
+string = list(input())
 command = input()
 letter_sum = 0
 
@@ -6,7 +6,7 @@ if command == 'LOWERCASE':
     for i in string[::]:
         if i.islower():
             letter_sum += ord(i)
-            
+
 elif command == 'UPPERCASE':
     for i in string[::]:
         if i.isupper():

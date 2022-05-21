@@ -6,7 +6,7 @@ sum1 = 0
 List = []
 for i in range(count):
     beggars = string[i::count]
-    for j, d in enumerate(beggars):
+    for d in beggars:
         sum1 += int(d)
     List.append(sum1)
     sum1 = 0

@@ -34,7 +34,7 @@ zoo_name = input()
 zoo = Zoo(zoo_name)
 count = int(input())
 
-for i in range(count):
+for _ in range(count):
     animal = input().split(" ")
     species = animal[0]
     name = animal[1]

@@ -6,7 +6,7 @@ while 'Reveal' not in command:
     command, *tokens = command.split(":|:")
 
     if command == 'InsertSpace':
-        msg = msg[:int(tokens[0])] + " " + msg[int(tokens[0]):]
+        msg = f"{msg[:int(tokens[0])]} {msg[int(tokens[0]):]}"
         print(msg)
     elif command == 'Reverse':
         if tokens[0] in msg:

@@ -3,7 +3,7 @@ total_bonus = 0
 max_attendace = 0
 max_bonus = 0
 
-for student in range(students):
+for _ in range(students):
     attendance = int(input())
     total_bonus = attendance / lectures * (5 + bonus)
 

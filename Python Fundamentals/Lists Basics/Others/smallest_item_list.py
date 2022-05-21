@@ -1,4 +1,4 @@
 s = list(map(int, input().split()))
 
-smallest = min([num for num in s])
+smallest = min(list(s))
 print(smallest)

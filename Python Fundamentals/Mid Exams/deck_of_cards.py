@@ -1,9 +1,9 @@
 cards = input().split(', ')
 number = int(input())
 
-for num in range(number):
+for _ in range(number):
     action, *args = list(map(str, input().split(', ')))
-    
+
     if action == 'Add':
         if args[0] not in cards[::]:
             cards.append(args[0])
@@ -31,5 +31,5 @@ for num in range(number):
                 print("Card is already added")
         else:
             print("Index out of range")
-            
+
 print(*cards, sep=', ')

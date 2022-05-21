@@ -9,11 +9,7 @@ for _ in range(number_of_msg):
     len_chars = len(re.findall(r"[star]", data, re.IGNORECASE))
     decrypt = ''.join(chr(ord(letter) - len_chars) for letter in data)
 
-    cipher = re.findall(
-        r"@([a-z]+)[^@\-!:>]*:(\d+)[^@\-!:>]*\!([ad])\![^@\-!:>]*->(\d+)", decrypt, re.IGNORECASE)
-
-    if cipher:
-
+    if cipher := re.findall(r"@([a-z]+)[^@\-!:>]*:(\d+)[^@\-!:>]*\!([ad])\![^@\-!:>]*->(\d+)", decrypt, re.IGNORECASE):
         if cipher[0][2] == 'A':
             planets['A'].append(cipher[0][0])
         else:

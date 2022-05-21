@@ -15,8 +15,6 @@ while True:
     if command == 'Pin' and args[0] in chat:
         chat.append(chat.pop(chat.index(args[0])))
     if command == 'Spam':
-        for i in args:
-            chat.append(i)
-
+        chat.extend(iter(args))
 for i in chat:
     print(i)
