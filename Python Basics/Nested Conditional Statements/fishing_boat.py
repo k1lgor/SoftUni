@@ -18,13 +18,12 @@ elif 7 <= fishermen <= 11:
         discount = 4200 * 0.85
     else:
         discount = 2600 * 0.85
+elif season == 'Spring':
+    discount = 3000 * 0.75
+elif season in ['Summer', 'Autumn']:
+    discount = 4200 * 0.75
 else:
-    if season == 'Spring':
-        discount = 3000 * 0.75
-    elif season in ['Summer', 'Autumn']:
-        discount = 4200 * 0.75
-    else:
-        discount = 2600 * 0.75
+    discount = 2600 * 0.75
 if fishermen % 2 == 0 and season != "Autumn":
     discount *= 0.95
 if budget < discount:

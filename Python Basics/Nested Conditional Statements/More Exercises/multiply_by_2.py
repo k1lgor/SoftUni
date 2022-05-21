@@ -1,11 +1,11 @@
 n = float(input())
-sum = 0.0
+sum_total = 0.0
 while True:
     if n < 0:
         print('Negative number!')
         break
-    sum = n * 2
-    print(f'Result: {sum:.2f}')
+    sum_total = n * 2
+    print(f'Result: {sum_total:.2f}')
     n = float(input())
 
 

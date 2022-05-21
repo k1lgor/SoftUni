@@ -10,12 +10,11 @@ elif 5000 < km <= 10000:
         ttl = km * 1.1 * 4
     else:
         ttl = km * 1.25 * 4
+elif season in ['Spring', 'Autumn']:
+    ttl = km * 0.75 * 4
+elif season == 'Summer':
+    ttl = km * 0.9 * 4
 else:
-    if season in ['Spring', 'Autumn']:
-        ttl = km * 0.75 * 4
-    elif season == 'Summer':
-        ttl = km * 0.9 * 4
-    else:
-        ttl = km * 1.05 * 4
+    ttl = km * 1.05 * 4
 
 print(f'{(ttl * 0.9):.2f}')
