@@ -1,15 +1,15 @@
+from unittest import TestCase, main
+
+
 class IntegerList:
     def __init__(self, *args):
-        self.__data = []
-        for x in args:
-            if type(x) == int:
-                self.__data.append(x)
+        self.__data = [x for x in args if type(x) == int]
 
     def get_data(self):
         return self.__data
 
     def add(self, element):
-        if not type(element) == int:
+        if type(element) != int:
             raise ValueError("Element is not Integer")
         self.get_data().append(element)
         return self.get_data()
@@ -29,7 +29,7 @@ class IntegerList:
     def insert(self, index, el):
         if index >= len(self.get_data()):
             raise IndexError("Index is out of range")
-        elif not type(el) == int:
+        elif type(el) != int:
             raise ValueError("Element is not Integer")
 
         self.get_data().insert(index, el)
@@ -40,9 +40,6 @@ class IntegerList:
 
     def get_index(self, el):
         return self.get_data().index(el)
-
-
-from unittest import TestCase, main
 
 
 class IntegerListTest(TestCase):
@@ -110,16 +107,19 @@ class IntegerListTest(TestCase):
         self.assertEqual(5, result)
 
     def test_insert_invalid_idx(self):
-        integer = IntegerList(5)
-        with self.assertRaises(IndexError) as ex:
-            integer.insert(2, 10)
-        self.assertEqual('Index is out of range', str(ex.exception))
+        self._extracted_from_test_insert_invalid_data_type_2(
+            IndexError, 2, 10, 'Index is out of range')
 
     def test_insert_invalid_data_type(self):
+        self._extracted_from_test_insert_invalid_data_type_2(
+            ValueError, 0, '10', 'Element is not Integer')
+
+    # TODO Rename this here and in `test_insert_invalid_idx` and `test_insert_invalid_data_type`
+    def _extracted_from_test_insert_invalid_data_type_2(self, arg0, arg1, arg2, arg3):
         integer = IntegerList(5)
-        with self.assertRaises(ValueError) as ex:
-            integer.insert(0, '10')
-        self.assertEqual('Element is not Integer', str(ex.exception))
+        with self.assertRaises(arg0) as ex:
+            integer.insert(arg1, arg2)
+        self.assertEqual(arg3, str(ex.exception))
 
     def test_insert_adds_ele(self):
         integer = IntegerList(5)

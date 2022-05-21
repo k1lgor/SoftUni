@@ -19,7 +19,8 @@ class PetShopTests(TestCase):
     def test_add_food_quantity(self):
         with self.assertRaises(ValueError) as ex:
             self.pet.add_food(self.pet.name, -2)
-        self.assertEqual('Quantity cannot be equal to or less than 0', str(ex.exception))
+        self.assertEqual(
+            'Quantity cannot be equal to or less than 0', str(ex.exception))
 
     def test_add_food_not_in_foods(self):
         self.pet.add_food('hrana', 1)
@@ -35,7 +36,8 @@ class PetShopTests(TestCase):
         self.assertEqual('Successfully added kancho.', result)
         with self.assertRaises(Exception) as ex:
             self.pet.add_pet('kancho')
-        self.assertEqual('Cannot add a pet with the same name', str(ex.exception))
+        self.assertEqual(
+            'Cannot add a pet with the same name', str(ex.exception))
 
     def test_feed_pet_if_pet_doesnt_exist(self):
         self.pet.pets = []
@@ -50,24 +52,26 @@ class PetShopTests(TestCase):
         self.assertEqual('You do not have hrana', result)
 
     def test_feed_pet_if_food_less_than_100(self):
-        self.pet.food = {'hrana': 90}
-        self.pet.pets = ['manqk']
-        result = self.pet.feed_pet('hrana', 'manqk')
-        self.assertEqual('Adding food...', result)
-        self.assertEqual({'hrana': 1090}, self.pet.food)
+        self._extracted_from_test_feed_pet_if_food_more_than_100_2(
+            90, 'Adding food...', 1090)
 
     def test_feed_pet_if_food_more_than_100(self):
-        self.pet.food = {'hrana': 110}
+        self._extracted_from_test_feed_pet_if_food_more_than_100_2(
+            110, 'manqk was successfully fed', 10)
+
+    # TODO Rename this here and in `test_feed_pet_if_food_less_than_100` and `test_feed_pet_if_food_more_than_100`
+    def _extracted_from_test_feed_pet_if_food_more_than_100_2(self, arg0, arg1, arg2):
+        self.pet.food = {'hrana': arg0}
         self.pet.pets = ['manqk']
         result = self.pet.feed_pet('hrana', 'manqk')
-        self.assertEqual('manqk was successfully fed', result)
-        self.assertEqual({'hrana': 10}, self.pet.food)
+        self.assertEqual(arg1, result)
+        self.assertEqual({'hrana': arg2}, self.pet.food)
 
     def test_repr(self):
         self.pet.name = 'manqk'
         self.pet.pets = ['kuche', 'kotka']
         result = self.pet.__repr__()
-        self.assertEqual(f'Shop {self.pet.name}:\n' \
+        self.assertEqual(f'Shop {self.pet.name}:\n'
                          f'Pets: {", ".join(self.pet.pets)}', result)
 
 

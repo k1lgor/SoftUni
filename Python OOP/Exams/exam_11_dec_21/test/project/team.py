@@ -25,16 +25,13 @@ class Team:
         return f"Successfully added: {', '.join(added_members_by_name)}"
 
     def remove_member(self, name: str):
-        if name in self.members:
-            del self.members[name]
-            return f"Member {name} removed"
-        else:
+        if name not in self.members:
             return f"Member with name {name} does not exist"
+        del self.members[name]
+        return f"Member {name} removed"
 
     def __gt__(self, other):  # "other" is another instance of class Team!
-        if len(self.members) > len(other.members):
-            return True
-        return False
+        return len(self.members) > len(other.members)
 
     def __len__(self):
         return len(self.members)
@@ -48,6 +45,7 @@ class Team:
 
     def __str__(self):
         result = [f"Team name: {self.name}"]
-        members = list(sorted(self.members.items(), key=lambda x: (-x[1], x[0])))
+        members = list(sorted(self.members.items(),
+                       key=lambda x: (-x[1], x[0])))
         result.extend([f"Member: {x[0]} - {x[1]}-years old" for x in members])
         return "\n".join(result)

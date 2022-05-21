@@ -16,9 +16,8 @@ class Driver:
     @name.setter
     def name(self, value):
         Validator.raise_if_len_is_less_than(
-            value.strip(),
-            1,
-            f'Name should contain at least one character!')
+            value.strip(), 1, 'Name should contain at least one character!')
+
         self.__name = value
 
     def change_car(self, car: Car):

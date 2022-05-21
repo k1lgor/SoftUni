@@ -10,7 +10,7 @@ class Student:
             [self.courses[course_name].append(x) for x in notes]
             return "Course already added. Notes have been updated."
 
-        if add_course_notes == "Y" or add_course_notes == "":
+        if add_course_notes in {"Y", ""}:
             self.courses[course_name] = notes
             return "Course and course notes have been added."
 

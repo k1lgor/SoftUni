@@ -18,9 +18,7 @@ class VehicleTests(TestCase):
         self.assertEqual('Not enough fuel', str(ex.exception))
 
     def test_drive_if_not_error(self):
-        vehicle = Vehicle(5, 2)
-        vehicle.drive(1)
-        self.assertEqual(3.75, vehicle.fuel)
+        vehicle = self._extracted_from_test_refuel_if_not_error_2(1, 3.75)
 
     def test_refuel(self):
         vehicle = Vehicle(5, 2)
@@ -29,16 +27,22 @@ class VehicleTests(TestCase):
         self.assertEqual('Too much fuel', str(ex.exception))
 
     def test_refuel_if_not_error(self):
-        vehicle = Vehicle(5, 2)
-        vehicle.drive(2)
-        self.assertEqual(2.5, vehicle.fuel)
+        vehicle = self._extracted_from_test_refuel_if_not_error_2(2, 2.5)
         vehicle.refuel(1)
         self.assertEqual(3.5, vehicle.fuel)
+
+    # TODO Rename this here and in `test_drive_if_not_error` and `test_refuel_if_not_error`
+    def _extracted_from_test_refuel_if_not_error_2(self, arg0, arg1):
+        result = Vehicle(5, 2)
+        result.drive(arg0)
+        self.assertEqual(arg1, result.fuel)
+        return result
 
     def test_str(self):
         vehicle = Vehicle(5, 2)
         result = vehicle.__str__()
-        self.assertEqual('The vehicle has 2 horse power with 5 fuel left and 1.25 fuel consumption', result)
+        self.assertEqual(
+            'The vehicle has 2 horse power with 5 fuel left and 1.25 fuel consumption', result)
 
 
 if __name__ == '__main__':

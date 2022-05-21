@@ -1,3 +1,4 @@
+import contextlib
 from project.core.car_factory import CarFactory
 from project.driver import Driver
 from project.race import Race
@@ -15,12 +16,10 @@ class Controller:
         if any(c.model == model for c in self.cars):
             raise Exception(f'Car {model} is already created!')
 
-        try:
+        with contextlib.suppress(RuntimeError):
             car = self.car_factory.create_car(car_type, model, speed_limit)
             self.cars.append(car)
             return f"{car.__class__.__name__} {car.model} is created."
-        except RuntimeError:
-            pass
 
     def create_driver(self, driver_name: str):
         if any(d.name == driver_name for d in self.drivers):

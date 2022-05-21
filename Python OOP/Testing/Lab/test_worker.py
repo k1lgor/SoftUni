@@ -1,3 +1,6 @@
+from unittest import TestCase, main
+
+
 class Worker:
 
     def __init__(self, name, salary, energy):
@@ -20,9 +23,6 @@ class Worker:
         return f'{self.name} has saved {self.money} money.'
 
 
-from unittest import TestCase, main
-
-
 class WorkerTests(TestCase):
     def test_worker_is_initialized(self):
         worker = Worker("Test", 100, 10)
@@ -38,15 +38,14 @@ class WorkerTests(TestCase):
         self.assertEqual(11, worker.energy)
 
     def test_error_is_raised(self):
-        worker = Worker("Test", 100, 0)
-
-        with self.assertRaises(Exception) as ex:
-            worker.work()
-        self.assertEqual('Not enough energy.', str(ex.exception))
+        self._extracted_from_test_error_with_negative_2(0)
 
     def test_error_with_negative(self):
-        worker = Worker("Test", 100, -1)
+        self._extracted_from_test_error_with_negative_2(-1)
 
+    # TODO Rename this here and in `test_error_is_raised` and `test_error_with_negative`
+    def _extracted_from_test_error_with_negative_2(self, arg0):
+        worker = Worker("Test", 100, arg0)
         with self.assertRaises(Exception) as ex:
             worker.work()
         self.assertEqual('Not enough energy.', str(ex.exception))

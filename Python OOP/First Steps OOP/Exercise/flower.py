@@ -11,9 +11,7 @@ class Flower:
             self.is_happy = True
 
     def status(self):
-        if not self.is_happy:
-            return f'{self.name} is not happy'
-        return f'{self.name} is happy'
+        return f'{self.name} is happy' if self.is_happy else f'{self.name} is not happy'
 
 
 flower = Flower("Lilly", 100)

@@ -7,22 +7,23 @@ class PaintFactory(Factory):
         self.valid_ingredients = ["white", "yellow", "blue", "green", "red"]
 
     def add_ingredient(self, product_type, product_quantity):
-        if product_type in self.valid_ingredients:
-            if self.can_add(product_quantity):
-                if product_type not in self.ingredients:
-                    self.ingredients[product_type] = 0
-                self.ingredients[product_type] += product_quantity
-            else:
-                raise ValueError("Not enough space in factory")
+        if product_type not in self.valid_ingredients:
+            raise TypeError(
+                f"Ingredient of type {product_type} not allowed in {self.__class__.__name__}")
+        if self.can_add(product_quantity):
+            if product_type not in self.ingredients:
+                self.ingredients[product_type] = 0
+            self.ingredients[product_type] += product_quantity
         else:
-            raise TypeError(f"Ingredient of type {product_type} not allowed in {self.__class__.__name__}")
+            raise ValueError("Not enough space in factory")
 
     def remove_ingredient(self, product_type, product_quantity):
         if product_type in self.ingredients:
             if self.ingredients[product_type] - product_quantity >= 0:
                 self.ingredients[product_type] -= product_quantity
             else:
-                raise ValueError("Ingredients quantity cannot be less than zero")
+                raise ValueError(
+                    "Ingredients quantity cannot be less than zero")
         else:
             raise KeyError("No such ingredient in the factory")
 

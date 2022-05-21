@@ -48,10 +48,4 @@ class StudentReportCard:
         return f"Average Grade: {sum_all_grades/ all_count :.2f}"
 
     def __repr__(self):
-        report = f"Name: {self.student_name}\n" \
-                 f"Year: {self.school_year}\n" \
-                 f"----------\n" \
-                 f"{self.average_grade_by_subject()}\n" \
-                 f"----------\n" \
-                 f"{self.average_grade_for_all_subjects()}"
-        return report
+        return f"Name: {self.student_name}\n" f"Year: {self.school_year}\n" f"----------\n" f"{self.average_grade_by_subject()}\n" f"----------\n" f"{self.average_grade_for_all_subjects()}"

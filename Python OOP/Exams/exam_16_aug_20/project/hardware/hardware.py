@@ -29,9 +29,4 @@ class Hardware:
         software_comp = f'{", ".join(x.name for x in self.software_components)}'
         if not software_comp:
             software_comp = 'None'
-        return f'Hardware Component - {self.name}\n' \
-               f'Express Software Components: {len([x for x in self.software_components if x.software_type == "Express"])}\n' \
-               f'Light Software Components: {len([x for x in self.software_components if x.software_type == "Light"])}\n' \
-               f'Memory Usage: {sum([x for x in self.software_components if x.memory_consumption])} / {self.memory}\n' \
-               f'Capacity Usage: {sum([x for x in self.software_components if x.capacity_consumption])} / {self.capacity}\n' \
-               f'Software Components: {software_comp}'
+        return f'Hardware Component - {self.name}\nExpress Software Components: {len([x for x in self.software_components if x.software_type == "Express"])}\nLight Software Components: {len([x for x in self.software_components if x.software_type == "Light"])}\nMemory Usage: {sum(x for x in self.software_components if x.memory_consumption)} / {self.memory}\nCapacity Usage: {sum(x for x in self.software_components if x.capacity_consumption)} / {self.capacity}\nSoftware Components: {software_comp}'

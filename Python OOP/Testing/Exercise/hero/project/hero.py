@@ -15,10 +15,12 @@ class Hero:
             raise Exception("You cannot fight yourself")
 
         if self.health <= 0:
-            raise ValueError("Your health is lower than or equal to 0. You need to rest")
+            raise ValueError(
+                "Your health is lower than or equal to 0. You need to rest")
 
         if enemy_hero.health <= 0:
-            raise ValueError(f"You cannot fight {enemy_hero.username}. He needs to rest")
+            raise ValueError(
+                f"You cannot fight {enemy_hero.username}. He needs to rest")
 
         player_damage = self.damage * self.level
         enemy_hero_damage = enemy_hero.damage * enemy_hero.level
@@ -30,15 +32,15 @@ class Hero:
             return "Draw"
 
         if enemy_hero.health <= 0:
-            self.level += 1
-            self.health += 5
-            self.damage += 5
-            return "You win"
+            return self._extracted_from_battle_21(self, "You win")
+        return self._extracted_from_battle_21(enemy_hero, "You lose")
 
-        enemy_hero.level += 1
-        enemy_hero.health += 5
-        enemy_hero.damage += 5
-        return "You lose"
+    # TODO Rename this here and in `battle`
+    def _extracted_from_battle_21(self, arg0, arg1):
+        arg0.level += 1
+        arg0.health += 5
+        arg0.damage += 5
+        return arg1
 
     def __str__(self):
         return f"Hero {self.username}: {self.level} lvl\n" \

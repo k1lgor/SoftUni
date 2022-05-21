@@ -21,7 +21,7 @@ class PetShop:
 
     def feed_pet(self, food_name: str, pet_name: str):
         if pet_name not in self.pets:
-            raise Exception(f"Please insert a valid pet name")
+            raise Exception("Please insert a valid pet name")
 
         if food_name not in self.food:
             return f'You do not have {food_name}'

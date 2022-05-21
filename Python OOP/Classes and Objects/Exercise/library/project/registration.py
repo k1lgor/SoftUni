@@ -11,16 +11,13 @@ class Registration:
 
     def remove_user(self, user):
         if user not in self.user_records:
-            return f"We could not find such user to remove!"
+            return "We could not find such user to remove!"
         self.user_records.remove(user)
 
     def change_username(self, user_id: int, new_username: str):
-        user_list = list(filter(lambda user: user.user_id == user_id, self.user_records))
-        if user_list:
+        if user_list := list(filter(lambda user: user.user_id == user_id, self.user_records)):
             if user_list[0].username == new_username:
-                return f"Please check again the provided username " \
-                       f"- it should be different than the username " \
-                       f"used so far!"
+                return "Please check again the provided username "
             user_list[0].username = new_username
             return f"Username successfully changed to: " \
                    f"{new_username} for userid: {user_id}"
