@@ -1,8 +1,6 @@
+import itertools
 n = int(input())
-comb = 0
-for i in range(n + 1):
-    for j in range(n + 1):
-        for k in range(n + 1):
-            if i + j + k == n:
-                comb += 1
+comb = sum(i + j + k == n for i, j,
+           k in itertools.product(range(n + 1), range(n + 1), range(n + 1)))
+
 print(comb)

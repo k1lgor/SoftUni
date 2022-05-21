@@ -11,16 +11,14 @@ while movie_name != 'Finish':
     kid_counter = 0
     ttl_tickets = 0
     free_seats = int(input())
-    while ticket != 'End':
-        if ttl_tickets == free_seats:
-            break
+    while ticket != 'End' and ttl_tickets != free_seats:
         ticket = input()
-        if ticket == 'student':
-            student_counter += 1
+        if ticket == 'kid':
+            kid_counter += 1
         elif ticket == 'standard':
             standard_counter += 1
-        elif ticket == 'kid':
-            kid_counter += 1
+        elif ticket == 'student':
+            student_counter += 1
         ttl_tickets = student_counter + standard_counter + kid_counter
     print(f'{movie_name} - {((ttl_tickets / free_seats) * 100):.2f}% full.')
 
