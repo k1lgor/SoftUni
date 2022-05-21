@@ -5,8 +5,7 @@ diff = 0
 maxdiff = 0
 for i in range(n):
     middle = left
-    left = 0
-    left += int(input())
+    left = 0 + int(input())
     left += int(input())
     if i != 0:
         diff = abs(left - middle)

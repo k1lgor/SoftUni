@@ -1,4 +1,3 @@
-for i in range(24):
-    for j in range(60):
-        for k in range(60):
-            print(f'{i} : {j} : {k}')
+import itertools
+for i, j, k in itertools.product(range(24), range(60), range(60)):
+    print(f'{i} : {j} : {k}')

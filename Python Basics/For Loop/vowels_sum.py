@@ -1,14 +1,14 @@
 word = input()
-sum = 0
+total = 0
 for i in word:
     if i == 'a':
-        sum += 1
+        total += 1
     elif i == 'e':
-        sum += 2
+        total += 2
     elif i == 'i':
-        sum += 3
+        total += 3
     elif i == 'o':
-        sum += 4
+        total += 4
     elif i == 'u':
-        sum += 5
-print(sum)
+        total += 5
+print(total)

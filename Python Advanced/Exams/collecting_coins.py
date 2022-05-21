@@ -35,9 +35,7 @@ coins = 0
 player_pos = player_pos(matrix, size)
 path = [[player_pos[0], player_pos[1]]]
 loss = False
-while True:
-    if coins >= 100:
-        break
+while coins < 100:
     direction = input()
 
     if direction in ['up', 'right', 'down', 'left']:

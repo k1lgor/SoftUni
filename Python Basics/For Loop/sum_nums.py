@@ -1,5 +1,5 @@
-sum = 0
+total = 0
 for _ in range(int(input())):
     n = int(input())
-    sum += n
-print(sum)
+    total += n
+print(total)

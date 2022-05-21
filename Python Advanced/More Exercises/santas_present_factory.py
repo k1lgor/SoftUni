@@ -15,9 +15,9 @@ crafted = {}
 while toys and levels:
     toy = toys.pop()
     level = levels.popleft()
-    if toy == 0 and level == 0:
-        continue
     if toy == 0:
+        if level == 0:
+            continue
         levels.appendleft(level)
     if level == 0:
         toys.append(toy)
