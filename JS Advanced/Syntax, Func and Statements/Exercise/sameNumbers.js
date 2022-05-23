@@ -1,19 +1,7 @@
 function same(param) {
-	const string = String(param);
-	let total = 0;
-	let isSame = false;
-	for (let i = 0; i < string.length; i++) {
-		total += Number(string[i]);
-		for (let j = 0; j < string.length; j++) {
-			if (i === j) {
-				continue;
-			} else if (string[i] === string[j]) {
-				isSame = true;
-			} else {
-				isSame = false;
-			}
-		}
-	}
+	let arr = String(param).split('');
+	let total = arr.reduce((a, b) => Number(a) + Number(b));
+	let isSame = arr.every((a) => a === arr[0]) ? true : false;
 	return `${isSame}\n${total}`;
 }
 console.log(same(2222222));
