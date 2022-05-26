@@ -1,5 +1,21 @@
 function biggest(arr) {
 	return `${Math.max(...arr.flat())}`;
+	// let big = -99999999999999999;
+	// for (let i = 0; i < arr.length; i++) {
+	// 	for (let j = 0; j < arr[i].length; j++) {
+	// 		if (arr[i][j] > big) {
+	// 			big = arr[i][j];
+	// 		}
+	// 	}
+	// }
+	// arr.filter((a) => {
+	// 	for (const iterator of a) {
+	// 		if (iterator > big) {
+	// 			big = iterator;
+	// 		}
+	// 	}
+	// });
+	// return big;
 }
 console.log(
 	biggest([
