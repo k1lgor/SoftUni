@@ -17,7 +17,7 @@ while True:
         break
 
     if action == 'Status':
-        count = sum([1 for x in pirate if x < HP * 0.2])
+        count = sum(1 for x in pirate if x < HP * 0.2)
         print(f"{count} sections need repair.")
 
     if action == 'Fire':
