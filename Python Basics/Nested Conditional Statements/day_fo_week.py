@@ -1,5 +1,4 @@
-num = int(input())
-if num == 1:
+if (num := int(input())) == 1:
     print("Monday")
 elif num == 2:
     print("Tuesday")

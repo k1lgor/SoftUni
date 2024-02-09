@@ -7,8 +7,7 @@ best_name = ''
 for _ in range(kozunak):
     name = input()
     while grade != 'Stop':
-        grade = input()
-        if grade == 'Stop':
+        if (grade := input()) == 'Stop':
             break
         cur_points += int(grade)
     print(f'{name} has {cur_points} points.')

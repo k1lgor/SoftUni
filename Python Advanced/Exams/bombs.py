@@ -12,9 +12,8 @@ materials = {
 while effect and casing and (materials['Datura Bombs'] <= 2 or materials['Cherry Bombs'] <= 2 or materials['Smoke Decoy Bombs'] <= 2):
     e = effect.popleft()
     c = casing.pop()
-    ttl = e + c
 
-    if ttl == 40:
+    if (ttl := e + c) == 40:
         materials['Datura Bombs'] += 1
     elif ttl == 60:
         materials['Cherry Bombs'] += 1

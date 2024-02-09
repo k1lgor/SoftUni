@@ -55,28 +55,24 @@ class Bakery:
         return f"No available table for {number_of_people} people"
 
     def order_food(self, table_number: int, *args):
-        table = self.find_table_by_number(table_number)
-        if table is None:
+        if (table := self.find_table_by_number(table_number)) is None:
             return f'Could not find table {table_number}'
         ordered = f'Table {table_number} ordered:\n'
         skipped = f'{self.name} does not have in the menu:\n'
         for food_name in args:
-            food = self.find_food_by_name(food_name)
-            if food is None:
+            if (food := self.find_food_by_name(food_name)) is None:
                 skipped += f'{food_name}\n'
             else:
                 ordered += f'{str(food)}\n'
         return ordered.strip() + '\n' + skipped.strip()
 
     def order_drink(self, table_number: int, *args):
-        table = self.find_table_by_number(table_number)
-        if table is None:
+        if (table := self.find_table_by_number(table_number)) is None:
             return f'Could not find table {table_number}'
         ordered = f'Table {table_number} ordered:\n'
         skipped = f'{self.name} does not have in the menu:\n'
         for drink_name in args:
-            drink = self.find_drink_by_name(drink_name)
-            if drink is None:
+            if (drink := self.find_drink_by_name(drink_name)) is None:
                 skipped += f'{drink_name}\n'
             else:
                 ordered += f'{str(drink)}\n'

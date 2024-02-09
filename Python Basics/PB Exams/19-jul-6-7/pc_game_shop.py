@@ -6,8 +6,7 @@ game3 = 0
 game4 = 0
 counter = 0
 for _ in range(sold_games):
-    game = input()
-    if game == 'Fornite':
+    if (game := input()) == 'Fornite':
         game2 += 1
     elif game == 'Hearthstone':
         game1 += 1

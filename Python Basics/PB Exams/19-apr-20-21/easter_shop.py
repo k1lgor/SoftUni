@@ -3,8 +3,7 @@ command = ''
 number = 0
 sold = 0
 while command != 'Close':
-    command = input()
-    if command == 'Close':
+    if (command := input()) == 'Close':
         print(f'Store is closed!\n{sold} eggs sold.')
         break
     number = int(input())

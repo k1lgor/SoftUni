@@ -5,8 +5,7 @@ b = 0
 v = 0
 g = 0
 for _ in range(1, fans + 1):
-    stage = str(input())
-    if stage == 'A':
+    if (stage := str(input())) == 'A':
         a += 1
     elif stage == 'B':
         b += 1

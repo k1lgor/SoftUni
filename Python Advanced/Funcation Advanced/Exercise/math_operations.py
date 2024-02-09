@@ -12,8 +12,7 @@ def math_operations(*args, **kwargs):
         kwargs['s'] -= LIST.popleft()
         if not LIST:
             break
-        num = LIST.popleft()
-        if num != 0:
+        if (num := LIST.popleft()) != 0:
             kwargs['d'] /= num
         if not LIST:
             break

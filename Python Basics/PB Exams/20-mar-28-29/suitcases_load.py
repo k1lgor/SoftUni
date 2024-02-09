@@ -3,8 +3,7 @@ command = ''
 vol = 0
 baggage = 0
 while command != 'End':
-    command = input()
-    if command == 'End':
+    if (command := input()) == 'End':
         print('Congratulations! All suitcases are loaded!')
         break
     vol = float(command)

@@ -3,8 +3,7 @@ l = int(input())
 
 cake = w * l
 while cake > 0:
-    slices = input()
-    if slices == 'STOP':
+    if (slices := input()) == 'STOP':
         print(f'{cake} pieces are left.')
         break
     cake -= int(slices)

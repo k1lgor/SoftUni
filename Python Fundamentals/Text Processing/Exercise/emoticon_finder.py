@@ -3,8 +3,7 @@ def emoji_finder(data):
 
     while start < len(data):
 
-        pos = data.find(':', start)
-        if pos != -1:
+        if (pos := data.find(':', start)) != -1:
 
             print(data[pos:(pos + 2)])
             start = pos + 1

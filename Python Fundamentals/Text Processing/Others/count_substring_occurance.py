@@ -4,9 +4,8 @@ def count(string, substring):
 
     while start < len(string):
 
-        pos = string.find(substring, start)
 
-        if pos != -1:
+        if (pos := string.find(substring, start)) != -1:
             start = pos + 1
             counter += 1
         else:

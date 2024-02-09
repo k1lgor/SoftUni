@@ -4,8 +4,7 @@ ticket = 0
 other = 0
 suma = 0
 while voucher > 0:
-    command = input()
-    if command == 'End':
+    if (command := input()) == 'End':
         break
     name_len = len(command)
     if name_len > 8:

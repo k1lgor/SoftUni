@@ -23,8 +23,7 @@ for i in items:
     if budget < money:
         continue
 
-    can_buy = item in ['Clothes', 'Shoes', 'Accessories']
-    if can_buy:
+    if can_buy := item in ['Clothes', 'Shoes', 'Accessories']:
         budget -= money
         prices.append(money)
         profit += money

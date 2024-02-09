@@ -5,8 +5,7 @@ for _ in range(clients):
     counter = 0
     price = 0
     while command != 'Finish':
-        command = input()
-        if command == 'Finish':
+        if (command := input()) == 'Finish':
             if counter % 2 == 0:
                 price *= 0.8
             print(f'You purchased {counter} items for {price:.2f} leva.')

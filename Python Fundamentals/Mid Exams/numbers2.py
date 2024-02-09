@@ -2,8 +2,7 @@ nums = list(map(int, input().split()))
 
 while True:
     
-    command = input()
-    if command == 'Finish':
+    if (command := input()) == 'Finish':
         print(*nums, sep=' ')
         break
     

@@ -1,6 +1,5 @@
 deg = int(input())
-daytime = str(input())
-if daytime == 'Afternoon':
+if (daytime := str(input())) == 'Afternoon':
     if 10 <= deg <= 18:
         print(f"It's {deg} degrees, get your Shirt and Moccasins.")
     elif 18 < deg <= 24:

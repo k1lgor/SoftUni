@@ -8,8 +8,7 @@ text = ''
 max_eggs = 0
 color = ''
 for _ in range(colored_eggs):
-    text = input()
-    if text == 'blue':
+    if (text := input()) == 'blue':
         blue += 1
     elif text == 'green':
         green += 1

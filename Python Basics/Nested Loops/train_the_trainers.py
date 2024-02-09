@@ -3,8 +3,7 @@ presentation = ''
 grade_counter = 0
 ttl_grade = 0.0
 while presentation != 'Finish':
-    presentation = input()
-    if presentation == 'Finish':
+    if (presentation := input()) == 'Finish':
         break
     grade = 0.0
     counter = 0

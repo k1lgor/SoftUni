@@ -9,8 +9,7 @@ while winner != 'End of battle':
     if eggs2 == 0:
         print(f'Player two is out of eggs. Player one has {eggs1} eggs left.')
         break
-    winner = input()
-    if winner == 'End of battle':
+    if (winner := input()) == 'End of battle':
         print(f'Player one has {eggs1} eggs left.\nPlayer two has {eggs2} eggs left.')
         break
 

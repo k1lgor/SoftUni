@@ -12,11 +12,9 @@ for _ in range(days):
     lost = 0
     won = 0
     while games != 'Finish':
-        games = input()
-        if games == 'Finish':
+        if (games := input()) == 'Finish':
             break
-        results = input()
-        if results == 'win':
+        if (results := input()) == 'win':
             won += 1
             ttl += 20
         else:

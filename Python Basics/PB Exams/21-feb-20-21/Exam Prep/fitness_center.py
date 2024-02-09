@@ -9,8 +9,7 @@ bar = 0
 
 
 for _ in range(visitors):
-    text = input()
-    if text == 'Abs':
+    if (text := input()) == 'Abs':
         ABS += 1
     elif text == 'Back':
         back += 1

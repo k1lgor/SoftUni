@@ -5,8 +5,7 @@ class Party:
 
 party = Party()
 while True:
-    name = input()
-    if name == 'End':
+    if (name := input()) == 'End':
         break
     party.people.append(name)
 print(f"Going: {', '.join(party.people)}\nTotal: {len(party.people)}")
