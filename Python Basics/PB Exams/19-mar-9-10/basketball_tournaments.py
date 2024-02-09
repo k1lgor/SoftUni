@@ -4,8 +4,7 @@ won = 0
 lost = 0
 counter = 0
 while tournaments != 'End of tournaments':
-    tournaments = input()
-    if tournaments == 'End of tournaments':
+    if (tournaments := input()) == 'End of tournaments':
         break
     games = int(input())
     points1 = 0

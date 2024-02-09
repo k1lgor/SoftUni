@@ -3,8 +3,7 @@ command = ''
 ppl = 0
 income = 0
 while command != 'Movie time!':
-    command = input()
-    if command == 'Movie time!':
+    if (command := input()) == 'Movie time!':
         print(f'There are {abs(capacity)} seats left in the cinema.')
         break
     if capacity == 0:

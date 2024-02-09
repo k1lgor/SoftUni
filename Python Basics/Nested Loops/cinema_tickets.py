@@ -12,8 +12,7 @@ while movie_name != 'Finish':
     ttl_tickets = 0
     free_seats = int(input())
     while ticket != 'End' and ttl_tickets != free_seats:
-        ticket = input()
-        if ticket == 'kid':
+        if (ticket := input()) == 'kid':
             kid_counter += 1
         elif ticket == 'standard':
             standard_counter += 1

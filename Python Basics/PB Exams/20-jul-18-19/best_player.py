@@ -3,8 +3,7 @@ golaso = 0
 best_golaso = 0
 best_name = ''
 while name != 'END':
-    name = input()
-    if name == 'END':
+    if (name := input()) == 'END':
         break
     golaso = int(input())
     if golaso > best_golaso:

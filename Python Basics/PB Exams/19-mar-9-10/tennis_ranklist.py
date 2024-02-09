@@ -6,8 +6,7 @@ text = ''
 counter = 0
 points2 = 0
 for _ in range(tournaments):
-    text = input()
-    if text == 'F':
+    if (text := input()) == 'F':
         points2 += 1200
     elif text == 'SF':
         points2 += 720

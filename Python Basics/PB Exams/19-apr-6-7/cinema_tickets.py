@@ -9,8 +9,7 @@ tickets = 0
 while name_movie != 'Finish':
     free_seats = int(input())
     for _ in range(free_seats):
-        ticket = input()
-        if ticket == 'End':
+        if (ticket := input()) == 'End':
             break
         if ticket == 'kid':
             kid += 1

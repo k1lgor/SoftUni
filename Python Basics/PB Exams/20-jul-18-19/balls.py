@@ -9,8 +9,7 @@ white = 0
 black = 0
 other = 0
 for _ in range(n):
-    color = input()
-    if color == 'black':
+    if (color := input()) == 'black':
         points /= 2
         black += 1
     elif color == 'orange':

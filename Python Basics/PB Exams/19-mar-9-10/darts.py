@@ -9,8 +9,7 @@ while area != 'Retire':
     if points == 0:
         print(f'{name} won the leg with {success} shots.')
         break
-    area = input()
-    if area == 'Retire':
+    if (area := input()) == 'Retire':
         print(f'{name} retired after {fail} unsuccessful shots.')
         break
     cur_points = int(input())

@@ -1,6 +1,5 @@
-n1 = float(input())
 
-if n1 == 0:
+if (n1 := float(input())) == 0:
     print('zero')
 elif n1 > 0:
     if n1 < 1:

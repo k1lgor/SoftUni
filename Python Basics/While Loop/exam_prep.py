@@ -5,8 +5,7 @@ counter = 0
 unsat_counter = 0
 lastproblem = ''
 while unsat_counter < unsatisfied:
-    taskname = input()
-    if taskname == 'Enough':
+    if (taskname := input()) == 'Enough':
         print(
             f'Average score: {(avr / counter):.2f}\nNumber of problems: {counter}\nLast problem: {lastproblem}')
         break

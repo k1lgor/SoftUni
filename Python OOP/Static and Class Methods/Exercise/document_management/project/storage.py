@@ -10,18 +10,15 @@ class Storage:
         self.documents = []
 
     def add_category(self, category: Category):
-        storage_category = self.__find_category(category.id)
-        if storage_category is None:
+        if (storage_category := self.__find_category(category.id)) is None:
             self.categories.append(category)
 
     def add_topic(self, topic: Topic):
-        storage_topic = self.__find_topic(topic.id)
-        if storage_topic is None:
+        if (storage_topic := self.__find_topic(topic.id)) is None:
             self.topics.append(topic)
 
     def add_document(self, document: Document):
-        storage_document = self.get_document(document.id)
-        if storage_document is None:
+        if (storage_document := self.get_document(document.id)) is None:
             self.documents.append(document)
 
     def edit_category(self, category_id, new_name):

@@ -1,6 +1,5 @@
 while True:
-    text = input()
-    if text != 'Stop':
+    if (text := input()) != 'Stop':
         print(text)
     else:
         break

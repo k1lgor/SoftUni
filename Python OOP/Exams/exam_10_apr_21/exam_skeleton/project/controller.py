@@ -30,12 +30,10 @@ class Controller:
             return str(e)
 
     def insert_decoration(self, aquarium_name: str, decoration_type: str):
-        decoration = self.decorations_repository.find_by_type(decoration_type)
-        if decoration == 'None':
+        if (decoration := self.decorations_repository.find_by_type(decoration_type)) == 'None':
             return f"There isn't a decoration of type {decoration_type}."
         self.decorations_repository.remove(decoration)
-        aquarium = self.__find_aquarium_by_name(aquarium_name)
-        if aquarium is None:
+        if (aquarium := self.__find_aquarium_by_name(aquarium_name)) is None:
             return
         aquarium.add_decoration(decoration)
         return f"Successfully added {decoration_type} to {aquarium_name}."

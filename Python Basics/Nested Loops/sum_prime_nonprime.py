@@ -3,8 +3,7 @@ num = 0
 prime = 0
 nonprime = 0
 while n != 'stop':
-    n = input()
-    if n == 'stop':
+    if (n := input()) == 'stop':
         break
     num = int(n)
     if num < 0:

@@ -7,8 +7,7 @@ card = 0
 paid_card = 0
 summary = 0
 while price > 0:
-    command = input()
-    if command == 'End':
+    if (command := input()) == 'End':
         print('Failed to collect required money for charity.')
         break
     if (

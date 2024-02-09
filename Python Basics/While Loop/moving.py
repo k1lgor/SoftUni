@@ -5,9 +5,8 @@ h = int(input())
 room = w * l * h
 
 while room > 0:
-    boxes = input()
 
-    if boxes == 'Done':
+    if (boxes := input()) == 'Done':
         print(f'{room} Cubic meters left.')
         break
 

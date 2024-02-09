@@ -5,8 +5,7 @@ curr_index = 0
 
 def mission():
 
-    counter = nums.count(0)
-    if counter == len(nums):
+    if (counter := nums.count(0)) == len(nums):
         print('Mission was successful.')
     else:
         print(f'Cupid has failed {len(nums) - counter} places.')

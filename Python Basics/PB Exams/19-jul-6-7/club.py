@@ -7,8 +7,7 @@ while cocktail != 'Party!':
     if ttl >= wanted_money:
         print('Target acquired.')
         break
-    cocktail = input()
-    if cocktail == 'Party!':
+    if (cocktail := input()) == 'Party!':
         print(f'We need {abs(wanted_money - ttl):.2f} leva more.')
         break
     num_cocktails = int(input())

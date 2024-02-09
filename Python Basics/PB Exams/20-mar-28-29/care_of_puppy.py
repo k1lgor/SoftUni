@@ -4,8 +4,7 @@ command = ''
 food_bought_grams = food_bought * 1000
 
 while command != 'Adopted':
-    command = input()
-    if command == 'Adopted':
+    if (command := input()) == 'Adopted':
         break
     food_bought_grams -= int(command)
 if food_bought_grams < 0:

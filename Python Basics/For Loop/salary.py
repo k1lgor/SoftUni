@@ -1,8 +1,7 @@
 tabs = int(input())
 salary = int(input())
 for _ in range(1, tabs + 1):
-    site = str(input())
-    if site == 'Facebook':
+    if (site := str(input())) == 'Facebook':
         salary -= 150
     elif site == 'Instagram':
         salary -= 100

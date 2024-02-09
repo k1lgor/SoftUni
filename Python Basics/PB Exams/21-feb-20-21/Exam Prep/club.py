@@ -6,8 +6,7 @@ while text != 'Party!':
     if suma >= wanted:
         print('Target acquired.')
         break
-    text = input()
-    if text == 'Party!':
+    if (text := input()) == 'Party!':
         print(f'We need {abs(wanted - suma):.2f} leva more.')
         break
     cocktails = int(input())

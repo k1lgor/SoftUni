@@ -29,8 +29,7 @@ class SpaceStation:
         return f'Successfully added Planet: {name}.'
 
     def retire_astronaut(self, name: str):
-        astronaut = self.astronaut_repository.find_by_name(name)
-        if astronaut is None:
+        if (astronaut := self.astronaut_repository.find_by_name(name)) is None:
             raise Exception(f"Astronaut {name} doesn't exist!")
         self.astronaut_repository.remove(astronaut)
         return f"Astronaut {name} was retired!"
@@ -40,8 +39,7 @@ class SpaceStation:
             astro.increase_oxygen(10)
 
     def send_on_mission(self, planet_name: str):
-        planet = self.planet_repository.find_by_name(planet_name)
-        if planet is None:
+        if (planet := self.planet_repository.find_by_name(planet_name)) is None:
             raise Exception("Invalid planet name!")
         astronauts = self.astronaut_repository.find_astro_for_mission(5, 30)
         if len(astronauts) == 0:

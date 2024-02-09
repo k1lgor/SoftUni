@@ -4,8 +4,7 @@ price = 0
 counter = 0
 ttl = 0
 while True:
-    product = input()
-    if product == 'Stop':
+    if (product := input()) == 'Stop':
         print(f'You bought {counter} products for {ttl:.2f} leva.')
         break
     price = float(input())

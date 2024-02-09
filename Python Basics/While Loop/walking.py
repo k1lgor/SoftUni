@@ -2,8 +2,7 @@ steps_per_day = 10000
 steps = ''
 walked = 0
 while steps != 'Going home':
-    steps = input()
-    if steps == 'Going home':
+    if (steps := input()) == 'Going home':
         steps = input()
         walked += int(steps)
         if walked >= steps_per_day:

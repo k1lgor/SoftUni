@@ -7,8 +7,7 @@ card2 = 0
 points1 = 0
 points2 = 0
 while card1 != 'End of game':
-    card = input()
-    if card == 'End of game':
+    if (card := input()) == 'End of game':
         print(f'{name1} has {points1} points')
         print(f'{name2} has {points2} points')
         break
