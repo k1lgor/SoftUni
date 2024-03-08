@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./softuni
+      dockerfile: Dockerfile
+    container_name: softuni_backend
+    command: python manage.py runserver 0.0.0.0:8000
+    restart: on-failure
+    volumes:
+      - ./softuni/:/django/
+    ports:
+      - 8000:8000
+    # env_file:
+    #   - ./.env.dev
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.0-alpine
+    container_name: softuni_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=softuni_user
+      - POSTGRES_PASSWORD=softuni_password
+      - POSTGRES_DB=softuni_db
+
+volumes:
+  postgres_data:
